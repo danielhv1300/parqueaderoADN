@@ -16,7 +16,7 @@ public interface RepositorioVehiculoJPA extends CrudRepository<VehiculoEntidad, 
     @Query("SELECT p FROM VehiculoEntidad p WHERE p.placa = :placa AND p.fechaSalida IS NULL")
     VehiculoEntidad buscarPorPlaca(@Param("placa") String placa);
 
-    @Query("SELECT p FROM VehiculoEntidad p")
+    @Query("SELECT p FROM VehiculoEntidad p WHERE p.fechaSalida IS NULL")
     List<VehiculoEntidad> buscarRegistroVehiculos();
 
     @Query("SELECT CASE WHEN COUNT(p.id) > 0 THEN true ELSE false END FROM VehiculoEntidad p WHERE p.placa = :placa AND p.fechaSalida IS NULL")

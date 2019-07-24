@@ -16,15 +16,15 @@ public class RepositorioVehiculoH2Adaptador implements VehiculoRepositorio{
 	private RepositorioVehiculoJPA repositorioVehiculoJPA;
 	private VehiculoMapeador mapeador;
 	
-	public RepositorioVehiculoH2Adaptador(RepositorioVehiculoJPA parqueaderoRepositorioJPA, VehiculoMapeador mapeador){
-        this.repositorioVehiculoJPA = parqueaderoRepositorioJPA;
+	public RepositorioVehiculoH2Adaptador(RepositorioVehiculoJPA vehiculoRepositorioJPA, VehiculoMapeador mapeador){
+        this.repositorioVehiculoJPA = vehiculoRepositorioJPA;
         this.mapeador = mapeador;
     }
 	    
 	@Override
-	public Vehiculo crearVehiculo(Vehiculo parqueadero) {
-		VehiculoEntidad parqueaderoEntidad = repositorioVehiculoJPA.save(mapeador.convertirAEntidad(parqueadero));
-		return mapeador.convertirADominio(parqueaderoEntidad);
+	public Vehiculo crearVehiculo(Vehiculo vehiculo) {
+		VehiculoEntidad vehiculoEntidad = repositorioVehiculoJPA.save(mapeador.convertirAEntidad(vehiculo));
+		return mapeador.convertirADominio(vehiculoEntidad);
 	}
 
 
@@ -40,14 +40,14 @@ public class RepositorioVehiculoH2Adaptador implements VehiculoRepositorio{
 
 	@Override
 	public List<Vehiculo> buscarRegistroVehiculos() {
-		List<VehiculoEntidad> listaParqueaderoEntidad = repositorioVehiculoJPA.buscarRegistroVehiculos();
-		return mapeador.listaConvertirADominio(listaParqueaderoEntidad);
+		List<VehiculoEntidad> listaVehiculoEntidad = repositorioVehiculoJPA.buscarRegistroVehiculos();
+		return mapeador.listaConvertirADominio(listaVehiculoEntidad);
 	}
 
 	@Override
 	public Vehiculo buscarPorPlaca(String placa) {
-		VehiculoEntidad parqueaderoEntidad = repositorioVehiculoJPA.buscarPorPlaca(placa);
-		return mapeador.convertirADominio(parqueaderoEntidad);
+		VehiculoEntidad vehiculoEntidad = repositorioVehiculoJPA.buscarPorPlaca(placa);
+		return mapeador.convertirADominio(vehiculoEntidad);
 	}
 
 }
