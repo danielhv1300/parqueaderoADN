@@ -12,13 +12,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.wordnik.swagger.annotations.ApiOperation;
-
 import co.com.ceiba.parqueadero.parqueaderoADN.aplicacion.comando.VehiculoComando;
 import co.com.ceiba.parqueadero.parqueaderoADN.aplicacion.comando.manejador.ManejadorIngresoVehiculo;
 import co.com.ceiba.parqueadero.parqueaderoADN.aplicacion.comando.manejador.ManejadorSalidaVehiculo;
 import co.com.ceiba.parqueadero.parqueaderoADN.aplicacion.consulta.ListaVehiculoHandler;
 import co.com.ceiba.parqueadero.parqueaderoADN.dominio.modelo.Vehiculo;
+import io.swagger.annotations.ApiOperation;
 
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RestController
