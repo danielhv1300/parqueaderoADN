@@ -6,22 +6,24 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import java.util.Calendar;
+import java.util.Date;
 
 import org.junit.Before;
 import org.junit.Test;
 
 import co.com.ceiba.parqueadero.parqueaderoADN.dominio.constantes.Constantes;
 import co.com.ceiba.parqueadero.parqueaderoADN.dominio.excepcion.ExcepcionNoExisteRegistroVehiculo;
-import co.com.ceiba.parqueadero.parqueaderoADN.dominio.excepcion.ExcepcionPlacaVehiculoDuplicada;
 import co.com.ceiba.parqueadero.parqueaderoADN.dominio.excepcion.ExcepcionRestriccionPlaca;
 import co.com.ceiba.parqueadero.parqueaderoADN.dominio.excepcion.ExcepcionSinCupoDisponible;
 import co.com.ceiba.parqueadero.parqueaderoADN.dominio.modelo.Vehiculo;
 import co.com.ceiba.parqueadero.parqueaderoADN.dominio.repositorio.VehiculoRepositorio;
+import co.com.ceiba.parqueadero.parqueaderoADN.dominio.servicio.ServicioActualizarSalidaVehiculo;
 import co.com.ceiba.parqueadero.parqueaderoADN.dominio.servicio.ServicioCrearVehiculo;
 import co.com.ceiba.parqueadero.parqueaderoADN.testdatabuilder.VehiculoTestDataBuilder;
 
-public class ServicioCrearVehiculoTest {
-	
+
+public class ParqueaderoTest {
+
 	private VehiculoRepositorio parqueaderoRepositorio;
 
 	@Before
@@ -29,6 +31,31 @@ public class ServicioCrearVehiculoTest {
 		// arrange
 		this.parqueaderoRepositorio = mock(VehiculoRepositorio.class);
 	}
+	
+	@Test
+	public void vehiculoNoParqueado() {
+		
+		//Arrange
+		VehiculoTestDataBuilder parqueaderoDataBuilder = new VehiculoTestDataBuilder()
+				.tipoVehiculo(Constantes.TIPO_VEHICULO_CARRO);
+
+        Vehiculo parqueadero = parqueaderoDataBuilder.build();
+
+        ServicioActualizarSalidaVehiculo salidaServicio = new ServicioActualizarSalidaVehiculo(parqueaderoRepositorio);
+
+        when(parqueaderoRepositorio.crearVehiculo(parqueadero)).thenReturn(null);
+
+        //Act
+
+        try {
+        	salidaServicio.actualizar(parqueadero.getPlaca());
+            fail();
+        }catch (ExcepcionNoExisteRegistroVehiculo e){
+            // Assert
+            assertEquals(Vehiculo.MENSAJE_VEHICULO_NO_EXISTE_EN_PARQUEADERO, e.getMessage());
+        }
+	}
+
 	
 	@Test
 	public void crearParqueoMoto() {
@@ -136,45 +163,6 @@ public class ServicioCrearVehiculoTest {
         }catch (ExcepcionRestriccionPlaca e){
             // Assert
             assertEquals(Vehiculo.MENSAJE_RESTRICCION_POR_PLACA, e.getMessage());
-        }
-    }
-	
-	@Test
-    public void validarExisteCarro(){
-        //Arrange
-        VehiculoTestDataBuilder parqueaderoDataBuilder = new VehiculoTestDataBuilder()
-                .tipoVehiculo(Constantes.TIPO_VEHICULO_CARRO);
-        Vehiculo parqueadero = parqueaderoDataBuilder.build();
-
-        ServicioCrearVehiculo crearServicio = new ServicioCrearVehiculo(parqueaderoRepositorio);
-        when(parqueaderoRepositorio.crearVehiculo(parqueadero)).thenReturn(parqueadero);
-        //Act
-
-        try {
-        	crearServicio.crear(parqueadero);
-        }catch (ExcepcionPlacaVehiculoDuplicada e){
-            // Assert
-            assertEquals(Vehiculo.MENSAJE_VEHICULO_YA_EXISTE_EN_PARQUEADERO, e.getMessage());
-        }
-    }
-	
-	@Test
-    public void validarNoExisteCarro(){
-        //Arrange
-        VehiculoTestDataBuilder parqueaderoDataBuilder = new VehiculoTestDataBuilder()
-                .tipoVehiculo(Constantes.TIPO_VEHICULO_CARRO);
-        
-        Vehiculo parqueadero = parqueaderoDataBuilder.build();
-
-        ServicioCrearVehiculo crearServicio = new ServicioCrearVehiculo(parqueaderoRepositorio);
-        when(parqueaderoRepositorio.crearVehiculo(parqueadero)).thenReturn(null);
-        //Act
-
-        try {
-        	crearServicio.crear(parqueadero);
-        }catch (ExcepcionNoExisteRegistroVehiculo e){
-            // Assert
-            assertEquals(Vehiculo.MENSAJE_VEHICULO_NO_EXISTE_EN_PARQUEADERO, e.getMessage());
         }
     }
 
