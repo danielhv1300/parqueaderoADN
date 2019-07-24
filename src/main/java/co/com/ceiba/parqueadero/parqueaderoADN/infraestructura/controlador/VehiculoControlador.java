@@ -3,6 +3,7 @@ package co.com.ceiba.parqueadero.parqueaderoADN.infraestructura.controlador;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,22 +15,22 @@ import org.springframework.web.bind.annotation.RestController;
 import com.wordnik.swagger.annotations.ApiOperation;
 
 import co.com.ceiba.parqueadero.parqueaderoADN.aplicacion.comando.VehiculoComando;
-import co.com.ceiba.parqueadero.parqueaderoADN.aplicacion.comando.manejador.ManejadorEntradaVehiculo;
+import co.com.ceiba.parqueadero.parqueaderoADN.aplicacion.comando.manejador.ManejadorIngresoVehiculo;
 import co.com.ceiba.parqueadero.parqueaderoADN.aplicacion.comando.manejador.ManejadorSalidaVehiculo;
 import co.com.ceiba.parqueadero.parqueaderoADN.aplicacion.consulta.ListaVehiculoHandler;
 import co.com.ceiba.parqueadero.parqueaderoADN.dominio.modelo.Vehiculo;
 
-
+@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RestController
 @RequestMapping("/vehiculo") 
 public class VehiculoControlador {
 
-	private ManejadorEntradaVehiculo entradaVehiculoHandler;
+	private ManejadorIngresoVehiculo entradaVehiculoHandler;
 	private ManejadorSalidaVehiculo salidaVehiculoHandler;
 	private ListaVehiculoHandler listaVehiculoHandler;
 	
 	@Autowired
-    public VehiculoControlador(ManejadorEntradaVehiculo entradaVehiculoHandler, 
+    public VehiculoControlador(ManejadorIngresoVehiculo entradaVehiculoHandler, 
     		ManejadorSalidaVehiculo salidaVehiculoHandler, ListaVehiculoHandler listaVehiculoHandler){
         this.entradaVehiculoHandler = entradaVehiculoHandler;
         this.salidaVehiculoHandler = salidaVehiculoHandler;

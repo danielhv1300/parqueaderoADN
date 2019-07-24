@@ -10,23 +10,23 @@ import co.com.ceiba.parqueadero.parqueaderoADN.dominio.excepcion.ExcepcionSinCup
 import co.com.ceiba.parqueadero.parqueaderoADN.dominio.modelo.Vehiculo;
 import co.com.ceiba.parqueadero.parqueaderoADN.dominio.repositorio.VehiculoRepositorio;
 
-public class CrearVehiculoParqueaderoServicio {
+public class ServicioCrearVehiculo {
 
-	private VehiculoRepositorio parqueaderoRepositorio;
+	private VehiculoRepositorio vehiculoRepositorio;
 	
-	public CrearVehiculoParqueaderoServicio(VehiculoRepositorio parqueaderoRepositorio){
-        this.parqueaderoRepositorio = parqueaderoRepositorio;
+	public ServicioCrearVehiculo(VehiculoRepositorio parqueaderoRepositorio){
+        this.vehiculoRepositorio = parqueaderoRepositorio;
     }
 	
-	public Vehiculo crear(Vehiculo parqueadero){
-		validarRegistro(parqueadero.getPlaca());
-		validarCupo(parqueadero.getTipoVehiculo());
-		validarEntrada(parqueadero.getPlaca(),parqueadero.getFechaIngreso());
-        return this.parqueaderoRepositorio.crearVehiculo(parqueadero);
+	public Vehiculo crear(Vehiculo vehiculo){
+		validarRegistro(vehiculo.getPlaca());
+		validarCupo(vehiculo.getTipoVehiculo());
+		validarEntrada(vehiculo.getPlaca(),vehiculo.getFechaIngreso());
+        return this.vehiculoRepositorio.crearVehiculo(vehiculo);
     }
 	
 	private void validarRegistro(String placa) {
-        boolean existe = parqueaderoRepositorio.existeVehiculo(placa);
+        boolean existe = vehiculoRepositorio.existeVehiculo(placa);
         if(existe) {
             throw new ExcepcionPlacaVehiculoDuplicada(Vehiculo.MENSAJE_VEHICULO_YA_EXISTE_EN_PARQUEADERO);
         }
@@ -34,11 +34,11 @@ public class CrearVehiculoParqueaderoServicio {
 	
 	private void validarCupo(String tipoVehiculo) {
 		if(tipoVehiculo.equalsIgnoreCase(Constantes.TIPO_VEHICULO_MOTO) && 
-		   parqueaderoRepositorio.cuposPorTipoVehiculo(tipoVehiculo) == Constantes.CAPACIDAD_MAXIMA_MOTOS) {
+		   vehiculoRepositorio.cuposPorTipoVehiculo(tipoVehiculo) == Constantes.CAPACIDAD_MAXIMA_MOTOS) {
 			throw new ExcepcionSinCupoDisponible(Vehiculo.MENSAJE_SIN_CUPOS_DISPONIBLES);
 		}
 		if(tipoVehiculo.equalsIgnoreCase(Constantes.TIPO_VEHICULO_CARRO) && 
-		   parqueaderoRepositorio.cuposPorTipoVehiculo(tipoVehiculo) == Constantes.CAPACIDAD_MAXIMA_CARROS) {
+		   vehiculoRepositorio.cuposPorTipoVehiculo(tipoVehiculo) == Constantes.CAPACIDAD_MAXIMA_CARROS) {
 			throw new ExcepcionSinCupoDisponible(Vehiculo.MENSAJE_SIN_CUPOS_DISPONIBLES);
 		}
     }

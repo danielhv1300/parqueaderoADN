@@ -11,44 +11,44 @@ import co.com.ceiba.parqueadero.parqueaderoADN.infraestructura.adaptador.entidad
 @Component
 public class VehiculoMapeador {
 
-	public Vehiculo convertirADominio(VehiculoEntidad parqueaderoEntidad) {
-		Vehiculo parqueadero;
+	public Vehiculo convertirADominio(VehiculoEntidad vehiculoEntidad) {
+		Vehiculo vehiculo;
 
-		if (parqueaderoEntidad == null) {
-			parqueadero = null;
+		if (vehiculoEntidad == null) {
+			vehiculo = null;
 		} else {
-			parqueadero = new Vehiculo(parqueaderoEntidad.getId(), parqueaderoEntidad.getPlaca(),
-					parqueaderoEntidad.getTipoVehiculo(), parqueaderoEntidad.getCilindraje(),
-					parqueaderoEntidad.getFechaIngreso(), parqueaderoEntidad.getFechaSalida(),
-					parqueaderoEntidad.getValorTotal());
+			vehiculo = new Vehiculo(vehiculoEntidad.getId(), vehiculoEntidad.getPlaca(),
+					vehiculoEntidad.getTipoVehiculo(), vehiculoEntidad.getCilindraje(),
+					vehiculoEntidad.getFechaIngreso(), vehiculoEntidad.getFechaSalida(),
+					vehiculoEntidad.getValorTotal());
 		}
 
-		return parqueadero;
+		return vehiculo;
 	}
 
-	public VehiculoEntidad convertirAEntidad(Vehiculo parqueadero) {
-		VehiculoEntidad parqueaderoEntidad;
-		if (parqueadero == null) {
-			parqueaderoEntidad = null;
+	public VehiculoEntidad convertirAEntidad(Vehiculo vehiculo) {
+		VehiculoEntidad vehiculoEntidad;
+		if (vehiculo == null) {
+			vehiculoEntidad = null;
 		} else {
-			parqueaderoEntidad = new VehiculoEntidad(parqueadero.getId(), parqueadero.getPlaca(),
-					parqueadero.getTipoVehiculo(), parqueadero.getCilindraje(), parqueadero.getFechaIngreso(),
-					parqueadero.getFechaSalida(), parqueadero.getValor());
+			vehiculoEntidad = new VehiculoEntidad(vehiculo.getId(), vehiculo.getPlaca(),
+					vehiculo.getTipoVehiculo(), vehiculo.getCilindraje(), vehiculo.getFechaIngreso(),
+					vehiculo.getFechaSalida(), vehiculo.getValor());
 		}
 
-		return parqueaderoEntidad;
+		return vehiculoEntidad;
 	}
 
-	public List<Vehiculo> listaConvertirADominio(List<VehiculoEntidad> listaParqueaderoEntidad) {
-		final List<Vehiculo> listParqueadero = new ArrayList<>();
+	public List<Vehiculo> listaConvertirADominio(List<VehiculoEntidad> listaVehiculoEntidad) {
+		final List<Vehiculo> listVehiculo = new ArrayList<>();
 
-		listaParqueaderoEntidad
-				.forEach(parqueaderoEntidad -> listParqueadero.add(new Vehiculo(parqueaderoEntidad.getId(),
-						parqueaderoEntidad.getPlaca(), parqueaderoEntidad.getTipoVehiculo(),
-						parqueaderoEntidad.getCilindraje(), parqueaderoEntidad.getFechaIngreso(),
-						parqueaderoEntidad.getFechaSalida(), parqueaderoEntidad.getValorTotal())));
+		listaVehiculoEntidad
+				.forEach(vehiculoEntidad -> listVehiculo.add(new Vehiculo(vehiculoEntidad.getId(),
+						vehiculoEntidad.getPlaca(), vehiculoEntidad.getTipoVehiculo(),
+						vehiculoEntidad.getCilindraje(), vehiculoEntidad.getFechaIngreso(),
+						vehiculoEntidad.getFechaSalida(), vehiculoEntidad.getValorTotal())));
 
-		return listParqueadero;
+		return listVehiculo;
 	}
 
 }

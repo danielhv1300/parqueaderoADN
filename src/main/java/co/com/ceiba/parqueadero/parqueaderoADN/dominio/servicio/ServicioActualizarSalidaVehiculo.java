@@ -8,34 +8,34 @@ import co.com.ceiba.parqueadero.parqueaderoADN.dominio.modelo.ValidadorVehiculo;
 import co.com.ceiba.parqueadero.parqueaderoADN.dominio.modelo.Vehiculo;
 import co.com.ceiba.parqueadero.parqueaderoADN.dominio.repositorio.VehiculoRepositorio;
 
-public class ActualizarSalidaVehiculoParqueaderoServicio {
+public class ServicioActualizarSalidaVehiculo {
 
-	private VehiculoRepositorio parqueaderoRepositorio;
+	private VehiculoRepositorio vehiculoRepositorio;
 	
-	public ActualizarSalidaVehiculoParqueaderoServicio(VehiculoRepositorio parqueaderoRepositorio){
-        this.parqueaderoRepositorio = parqueaderoRepositorio;
+	public ServicioActualizarSalidaVehiculo(VehiculoRepositorio parqueaderoRepositorio){
+        this.vehiculoRepositorio = parqueaderoRepositorio;
     }
 	
 	public double actualizar(String placa){
 		ValidadorVehiculo.validarDatoObligatorio(placa, Vehiculo.MENSAJE_CAMPO_PLACA_OBLIGATORIO);
-		Vehiculo parqueadero = validarRegistro(placa);
-		parqueadero.setFechaSalida(Calendar.getInstance().getTime());
-		if(parqueadero.getTipoVehiculo().equalsIgnoreCase(Constantes.TIPO_VEHICULO_MOTO)) {
-			calcularPrecioMoto(parqueadero);
+		Vehiculo vehiculo = validarRegistro(placa);
+		vehiculo.setFechaSalida(Calendar.getInstance().getTime());
+		if(vehiculo.getTipoVehiculo().equalsIgnoreCase(Constantes.TIPO_VEHICULO_MOTO)) {
+			calcularPrecioMoto(vehiculo);
 		}else{
-			calcularPrecioCarro(parqueadero);
+			calcularPrecioCarro(vehiculo);
 		}
 		
-        this.parqueaderoRepositorio.crearVehiculo(parqueadero);
-        return parqueadero.getValor();
+        this.vehiculoRepositorio.crearVehiculo(vehiculo);
+        return vehiculo.getValor();
     }
 	
 	private Vehiculo validarRegistro(String placa) {
-		Vehiculo parqueadero = this.parqueaderoRepositorio.buscarPorPlaca(placa);
-		if (parqueadero == null) {
+		Vehiculo vehiculo = this.vehiculoRepositorio.buscarPorPlaca(placa);
+		if (vehiculo == null) {
 			throw new ExcepcionNoExisteRegistroVehiculo(Vehiculo.MENSAJE_VEHICULO_NO_EXISTE_EN_PARQUEADERO);
 		}
-		return parqueadero;
+		return vehiculo;
 	}
 	
 	public void calcularPrecioMoto(Vehiculo registry) {
@@ -68,9 +68,9 @@ public class ActualizarSalidaVehiculoParqueaderoServicio {
         registry.setValor(value);
     }
 	
-	public void calcularPrecioCarro(Vehiculo parqueadero) {
+	public void calcularPrecioCarro(Vehiculo vehiculo) {
         long total;
-        double miliseg = (parqueadero.getFechaSalida().getTime() - parqueadero.getFechaIngreso().getTime());
+        double miliseg = (vehiculo.getFechaSalida().getTime() - vehiculo.getFechaIngreso().getTime());
         double horaCarro = (miliseg/3600000);
         double minutosCarro = (miliseg/60000);
         long totalHora = Math.round(horaCarro);
@@ -91,6 +91,6 @@ public class ActualizarSalidaVehiculoParqueaderoServicio {
         	total = ((8000 * totalDia) + (totalHoraNuevoDia * 1000));
         }
         
-        parqueadero.setValor(total);
+        vehiculo.setValor(total);
     }
 }

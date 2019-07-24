@@ -3,13 +3,13 @@ package co.com.ceiba.parqueadero.parqueaderoADN.aplicacion.consulta;
 import java.util.List;
 
 import co.com.ceiba.parqueadero.parqueaderoADN.dominio.modelo.Vehiculo;
-import co.com.ceiba.parqueadero.parqueaderoADN.dominio.servicio.BuscarVehiculoParqueaderoServicio;
+import co.com.ceiba.parqueadero.parqueaderoADN.dominio.servicio.ServicioBuscarVehiculo;
 
 public class ListaVehiculoHandler {
 
-	private final BuscarVehiculoParqueaderoServicio buscarServicio;
+	private final ServicioBuscarVehiculo buscarServicio;
 
-    public ListaVehiculoHandler(BuscarVehiculoParqueaderoServicio servicio){
+    public ListaVehiculoHandler(ServicioBuscarVehiculo servicio){
         this.buscarServicio = servicio;
     }
 

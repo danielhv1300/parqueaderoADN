@@ -6,7 +6,7 @@ import java.util.Date;
 
 public class VehiculoComando implements Serializable {
 
-	private static final long serialVersionUID = 2579733431489895735L;
+	private static final long serialVersionUID = 1L;
 
 	private Long id;
 	private String placa;

@@ -1,12 +1,12 @@
 package co.com.ceiba.parqueadero.parqueaderoADN.aplicacion.comando.manejador;
 
-import co.com.ceiba.parqueadero.parqueaderoADN.dominio.servicio.ActualizarSalidaVehiculoParqueaderoServicio;
+import co.com.ceiba.parqueadero.parqueaderoADN.dominio.servicio.ServicioActualizarSalidaVehiculo;
 
 public class ManejadorSalidaVehiculo {
 	
-	private final ActualizarSalidaVehiculoParqueaderoServicio actualizarVehiculoServicio;
+	private final ServicioActualizarSalidaVehiculo actualizarVehiculoServicio;
 
-    public ManejadorSalidaVehiculo(ActualizarSalidaVehiculoParqueaderoServicio servicio){
+    public ManejadorSalidaVehiculo(ServicioActualizarSalidaVehiculo servicio){
         this.actualizarVehiculoServicio = servicio;
     }
 

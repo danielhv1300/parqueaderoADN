@@ -4,13 +4,13 @@ import java.util.Date;
 
 import co.com.ceiba.parqueadero.parqueaderoADN.aplicacion.comando.VehiculoComando;
 import co.com.ceiba.parqueadero.parqueaderoADN.dominio.modelo.Vehiculo;
-import co.com.ceiba.parqueadero.parqueaderoADN.dominio.servicio.CrearVehiculoParqueaderoServicio;
+import co.com.ceiba.parqueadero.parqueaderoADN.dominio.servicio.ServicioCrearVehiculo;
 
-public class ManejadorEntradaVehiculo {
+public class ManejadorIngresoVehiculo {
 
-	private final CrearVehiculoParqueaderoServicio crearVehiculoServicio;
+	private final ServicioCrearVehiculo crearVehiculoServicio;
 
-	public ManejadorEntradaVehiculo(CrearVehiculoParqueaderoServicio servicio) {
+	public ManejadorIngresoVehiculo(ServicioCrearVehiculo servicio) {
 		this.crearVehiculoServicio = servicio;
 	}
 
