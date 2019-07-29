@@ -20,12 +20,12 @@ public class Vehiculo {
 	private Long id;
 	private String placa;
 	private String tipoVehiculo;
-	private String cilindraje;
+	private int cilindraje;
 	private Date fechaIngreso;
 	private Date fechaSalida;
 	private double valor;
 	
-	public Vehiculo(Long id, String placa, String tipoVehiculo, String cilindraje, Date fechaIngreso, Date fechaSalida, double total) {
+	public Vehiculo(Long id, String placa, String tipoVehiculo, int cilindraje, Date fechaIngreso, Date fechaSalida, double total) {
 		ValidadorVehiculo.validarDatoObligatorio(placa, MENSAJE_CAMPO_PLACA_OBLIGATORIO);
 		ValidadorVehiculo.validarDatoObligatorio(tipoVehiculo,MENSAJE_CAMPO_TIPO_VEHICULO_OBLIGATORIO);
 		
@@ -68,11 +68,11 @@ public class Vehiculo {
 		this.tipoVehiculo = tipoVehiculo;
 	}
 
-	public String getCilindraje() {
+	public int getCilindraje() {
 		return cilindraje;
 	}
 
-	public void setCilindraje(String cilindraje) {
+	public void setCilindraje(int cilindraje) {
 		this.cilindraje = cilindraje;
 	}
 

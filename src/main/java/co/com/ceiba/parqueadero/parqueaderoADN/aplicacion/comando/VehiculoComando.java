@@ -11,14 +11,14 @@ public class VehiculoComando implements Serializable {
 	private Long id;
 	private String placa;
 	private String tipoVehiculo;
-	private String cilindraje;
+	private int cilindraje;
 	private Date fechaIngreso;
 	private Date fechaSalida;
 	private double total;
 
 	public VehiculoComando() {}
 	
-	public VehiculoComando(String placa, String tipoVehiculo, String cilindraje) {
+	public VehiculoComando(String placa, String tipoVehiculo, int cilindraje) {
 		this.placa = placa;
 		this.tipoVehiculo = tipoVehiculo;
 		this.cilindraje = cilindraje;
@@ -48,11 +48,11 @@ public class VehiculoComando implements Serializable {
 		this.tipoVehiculo = tipoVehiculo;
 	}
 
-	public String getCilindraje() {
+	public int getCilindraje() {
 		return cilindraje;
 	}
 
-	public void setCilindraje(String cilindraje) {
+	public void setCilindraje(int cilindraje) {
 		this.cilindraje = cilindraje;
 	}
 

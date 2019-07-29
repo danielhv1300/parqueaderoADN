@@ -15,7 +15,7 @@ public class VehiculoEntidad {
 	public VehiculoEntidad() {}
 
 	
-	public VehiculoEntidad(Long id, String placa, String tipoVehiculo, String cilindraje, Date fechaIngreso, Date fechaSalida, double valorTotal) {
+	public VehiculoEntidad(Long id, String placa, String tipoVehiculo, int cilindraje, Date fechaIngreso, Date fechaSalida, double valorTotal) {
 		this.id = id;
 		this.placa = placa;
 		this.tipoVehiculo = tipoVehiculo;
@@ -37,7 +37,7 @@ public class VehiculoEntidad {
 	private String tipoVehiculo;
 
 	@Column
-	private String cilindraje;
+	private int cilindraje;
 	
 	@Column(nullable = false)
 	private Date fechaIngreso;
@@ -72,11 +72,11 @@ public class VehiculoEntidad {
 		this.tipoVehiculo = tipoVehiculo;
 	}
 
-	public String getCilindraje() {
+	public int getCilindraje() {
 		return cilindraje;
 	}
 
-	public void setCilindraje(String cilindraje) {
+	public void setCilindraje(int cilindraje) {
 		this.cilindraje = cilindraje;
 	}
 
@@ -104,4 +104,3 @@ public class VehiculoEntidad {
 		this.valorTotal = valorTotal;
 	}
 }
-

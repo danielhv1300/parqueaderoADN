@@ -10,7 +10,7 @@ public class VehiculoTestDataBuilder {
 	private Long id;
 	private String placa;
 	private String tipoVehiculo;
-	private String cilindraje;
+	private int cilindraje;
 	private Date fechaIngreso;
 	private Date fechaSalida;
 	private double total;
@@ -20,7 +20,7 @@ public class VehiculoTestDataBuilder {
         this.id = 1L;
         this.placa = "HJI876";
         this.tipoVehiculo = Constantes.TIPO_VEHICULO_CARRO;        
-        this.cilindraje = null;
+        this.cilindraje = 0;
         this.fechaIngreso = new  Date();
         this.fechaSalida = null;
         this.total = 0;
@@ -41,7 +41,7 @@ public class VehiculoTestDataBuilder {
         return this;
     }
 
-    public VehiculoTestDataBuilder cilindraje(String cilindraje) {
+    public VehiculoTestDataBuilder cilindraje(int cilindraje) {
         this.cilindraje = cilindraje;
         return this;
     }

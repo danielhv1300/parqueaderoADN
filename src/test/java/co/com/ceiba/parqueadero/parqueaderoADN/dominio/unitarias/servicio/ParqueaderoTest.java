@@ -6,7 +6,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import java.util.Calendar;
-import java.util.Date;
+
 
 import org.junit.Before;
 import org.junit.Test;
@@ -63,7 +63,7 @@ public class ParqueaderoTest {
 		VehiculoTestDataBuilder vehiculoDataBuilder = new VehiculoTestDataBuilder()
 				.placa(Constantes.PLACA_MOTO)
                 .tipoVehiculo(Constantes.TIPO_VEHICULO_MOTO)
-                .cilindraje("660");
+                .cilindraje(660);
 
         Vehiculo vehiculo = vehiculoDataBuilder.build();
 
@@ -104,7 +104,7 @@ public class ParqueaderoTest {
 		VehiculoTestDataBuilder parqueaderoDataBuilder = new VehiculoTestDataBuilder()
 				.placa(Constantes.PLACA_MOTO)
                 .tipoVehiculo(Constantes.TIPO_VEHICULO_MOTO)
-                .cilindraje("600");
+                .cilindraje(600);
 
         Vehiculo parqueadero = parqueaderoDataBuilder.build();
 

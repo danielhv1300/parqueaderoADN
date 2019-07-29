@@ -39,8 +39,8 @@ public class VehiculoControlador {
 
     @PostMapping
     @ApiOperation("crear")
-    public void getEntrada(@RequestBody VehiculoComando parqueaderoComando) {
-        this.entradaVehiculoHandler.crear(parqueaderoComando);
+    public void getEntrada(@RequestBody VehiculoComando vehiculoComando) {
+        this.entradaVehiculoHandler.crear(vehiculoComando);
     }
     
     @GetMapping
@@ -51,7 +51,7 @@ public class VehiculoControlador {
 
     @PutMapping("/{placa}")
     @ApiOperation("salida")
-    public void getSalida(@PathVariable("placa") String placa) {
-        this.salidaVehiculoHandler.actualizar(placa);
+    public double getSalida(@PathVariable("placa") String placa) {
+        return this.salidaVehiculoHandler.actualizar(placa);
     }
 }
