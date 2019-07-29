@@ -14,10 +14,10 @@ public class ManejadorIngresoVehiculo {
 		this.crearVehiculoServicio = servicio;
 	}
 
-	public void crear(VehiculoComando parqueaderoComando) {
-		this.crearVehiculoServicio.crear(new Vehiculo(parqueaderoComando.getId(), parqueaderoComando.getPlaca(),
-				parqueaderoComando.getTipoVehiculo(), parqueaderoComando.getCilindraje(), new Date(),
-				parqueaderoComando.getFechaSalida(), parqueaderoComando.getTotal()));
+	public void crear(VehiculoComando vehiculoComando) {
+		this.crearVehiculoServicio.crear(new Vehiculo(vehiculoComando.getId(), vehiculoComando.getPlaca(),
+				vehiculoComando.getTipoVehiculo(), vehiculoComando.getCilindraje(), new Date(),
+				vehiculoComando.getFechaSalida(), vehiculoComando.getTotal()));
 	}
 
 }

@@ -22,7 +22,7 @@ import co.com.ceiba.parqueadero.parqueaderoADN.dominio.servicio.ServicioCrearVeh
 import co.com.ceiba.parqueadero.parqueaderoADN.testdatabuilder.VehiculoTestDataBuilder;
 
 
-public class ParqueaderoTest {
+public class VehiculoTest {
 
 	private VehiculoRepositorio parqueaderoRepositorio;
 
