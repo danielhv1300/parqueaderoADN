@@ -14,8 +14,8 @@ public class ServicioCrearVehiculo {
 
 	private VehiculoRepositorio vehiculoRepositorio;
 	
-	public ServicioCrearVehiculo(VehiculoRepositorio parqueaderoRepositorio){
-        this.vehiculoRepositorio = parqueaderoRepositorio;
+	public ServicioCrearVehiculo(VehiculoRepositorio vehiculoRepositorio){
+        this.vehiculoRepositorio = vehiculoRepositorio;
     }
 	
 	public Vehiculo crear(Vehiculo vehiculo){
