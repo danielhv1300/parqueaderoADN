@@ -12,7 +12,7 @@ public class Vehiculo {
 	public static final String MENSAJE_CAMPO_CILINDRAJE_OBLIGATORIO = "Es obligatorio indicar el cilindraje de la moto";
 	public static final String MENSAJE_NO_SE_ENCUENTRA_REGISTRO_VEHICULO = "El registro no existe";
 	public static final String MENSAJE_SIN_CUPOS_DISPONIBLES = "En el momento el parqueadero no cuenta con un espacio disponible para este tipo de vehiculo";
-	public static final String MENSAJE_RESTRICCION_POR_PLACA = "Por politicas del parqueadero el vehiculo no puede ingresar el día de hoy debido a que su placa inica por \"A\"";
+	public static final String MENSAJE_RESTRICCION_POR_PLACA = "Por politicas del parqueadero el vehiculo no puede ingresar el dia de hoy debido a que su placa inica por \"A\"";
 	public static final String MENSAJE_VEHICULO_YA_EXISTE_EN_PARQUEADERO = "Ya existe un vehiculo dentro del parqueadero con la placa que desea ingresar";
 	public static final String MENSAJE_VEHICULO_NO_EXISTE_EN_PARQUEADERO = "El vehiculo ya no se encuentra en el parqueadero";
 	public static final String LETRA_DE_RESTRICCION_POR_PLACA = "A";

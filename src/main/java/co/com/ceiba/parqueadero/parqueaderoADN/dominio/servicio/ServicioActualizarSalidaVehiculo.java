@@ -38,7 +38,6 @@ public class ServicioActualizarSalidaVehiculo {
 		return vehiculo;
 	}
 
-	// PASAR TODO A ESPAÑOL
 	public void calcularPrecioMoto(Vehiculo vehiculo) {
 		double value;
 		double miliSegundo = (vehiculo.getFechaSalida().getTime() - vehiculo.getFechaIngreso().getTime());

@@ -22,7 +22,7 @@ public interface VehiculoRepositorio {
 
 	public List<Vehiculo> buscarRegistroVehiculos();
 
-//Retorna vehiculo que aún se encuentra en parqueadero por placa
+//Retorna vehiculo que aun se encuentra en parqueadero por placa
 
 	public Vehiculo buscarPorPlaca(String placa);
 }
