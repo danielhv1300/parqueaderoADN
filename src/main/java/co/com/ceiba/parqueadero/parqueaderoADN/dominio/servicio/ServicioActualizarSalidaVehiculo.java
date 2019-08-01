@@ -11,25 +11,25 @@ import co.com.ceiba.parqueadero.parqueaderoADN.dominio.repositorio.VehiculoRepos
 public class ServicioActualizarSalidaVehiculo {
 
 	private VehiculoRepositorio vehiculoRepositorio;
-	
-	public ServicioActualizarSalidaVehiculo(VehiculoRepositorio parqueaderoRepositorio){
-        this.vehiculoRepositorio = parqueaderoRepositorio;
-    }
-	
-	public double actualizar(String placa){
+
+	public ServicioActualizarSalidaVehiculo(VehiculoRepositorio vehiculoRepositorio) {
+		this.vehiculoRepositorio = vehiculoRepositorio;
+	}
+
+	public double actualizar(String placa) {
 		ValidadorVehiculo.validarDatoObligatorio(placa, Vehiculo.MENSAJE_CAMPO_PLACA_OBLIGATORIO);
 		Vehiculo vehiculo = validarRegistro(placa);
 		vehiculo.setFechaSalida(Calendar.getInstance().getTime());
-		if(vehiculo.getTipoVehiculo().equalsIgnoreCase(Constantes.TIPO_VEHICULO_MOTO)) {
+		if (vehiculo.getTipoVehiculo().equalsIgnoreCase(Constantes.TIPO_VEHICULO_MOTO)) {
 			calcularPrecioMoto(vehiculo);
-		}else{
+		} else {
 			calcularPrecioCarro(vehiculo);
 		}
-		
-        this.vehiculoRepositorio.crearVehiculo(vehiculo);
-        return vehiculo.getValor();
-    }
-	
+
+		this.vehiculoRepositorio.crearVehiculo(vehiculo);
+		return vehiculo.getValor();
+	}
+
 	private Vehiculo validarRegistro(String placa) {
 		Vehiculo vehiculo = this.vehiculoRepositorio.buscarPorPlaca(placa);
 		if (vehiculo == null) {
@@ -37,60 +37,61 @@ public class ServicioActualizarSalidaVehiculo {
 		}
 		return vehiculo;
 	}
-	
-	public void calcularPrecioMoto(Vehiculo registry) {
-        long value;
-        double milisegund = (registry.getFechaSalida().getTime() - registry.getFechaIngreso().getTime());
-        double hour = (milisegund/3600000);
-        double minute = (milisegund/60000);
-        long totalHour = Math.round(hour);
-        long totalMinute = Math.round(minute);
-        int totalDay = (int)  totalHour / 24;
-        int  totalHourNewDay = (int) totalHour % 24;
 
+	// PASAR TODO A ESPAÑOL
+	public void calcularPrecioMoto(Vehiculo vehiculo) {
+		double value;
+		double miliSegundo = (vehiculo.getFechaSalida().getTime() - vehiculo.getFechaIngreso().getTime());
+		double hora = (miliSegundo / 3600000);
+		double minuto = (miliSegundo / 60000);
+		long totalHora = Math.round(hora);
+		long totalMinutos = Math.round(minuto);
+		int totalDia = (int) totalHora / Constantes.FIN_EN_HORAS_PARA_COBRO_POR_DIA;
+		int totalHoraNuevoDia = (int) totalHora % Constantes.FIN_EN_HORAS_PARA_COBRO_POR_DIA;
 
-        if(totalHour < 9){
-            if((totalMinute >= 2) && (totalHour == 0)){
-                value = 500;
-            }else{
-                value = totalHour * 500;
-            }
-        }else if(totalHourNewDay == 0 || (totalHourNewDay >= 9 && totalHourNewDay < 24)){
-            value = (4000 * (totalDay == 0 ? 1:totalDay));
-        }else{
-            value = ((4000 * totalDay) + (totalHourNewDay * 500));
-        }
-        
-        if(Integer.valueOf(registry.getCilindraje()) > 500 ){
-            value = value + 2000;
-        }
-        
-        registry.setValor(value);
-    }
-	
+		if (totalHora < Constantes.VALOR_HORA_CARRO) {
+			if ((totalMinutos >= 0) && (totalHora == 0)) {
+				value = Constantes.VALOR_HORA_MOTO;
+			} else {
+				value = totalHora * Constantes.VALOR_HORA_MOTO;
+			}
+		} else if (totalHoraNuevoDia == 0 || (totalHoraNuevoDia >= Constantes.INICIO_EN_HORAS_PARA_COBRO_POR_DIA
+				&& totalHoraNuevoDia < Constantes.FIN_EN_HORAS_PARA_COBRO_POR_DIA)) {
+			value = (Constantes.VALOR_DIA_MOTO * (totalDia == 0 ? 1 : totalDia));
+		} else {
+			value = ((Constantes.VALOR_DIA_MOTO * totalDia) + (totalHoraNuevoDia * Constantes.VALOR_HORA_MOTO));
+		}
+
+		if (Integer.valueOf(vehiculo.getCilindraje()) > Constantes.ALTO_CILINDRAJE_MOTO) {
+			value = value + Constantes.VALOR_ADICIONAL_MOTO_POR_CILINDRAJE;
+		}
+
+		vehiculo.setValor(value);
+	}
+
 	public void calcularPrecioCarro(Vehiculo vehiculo) {
-        long total;
-        double miliseg = (vehiculo.getFechaSalida().getTime() - vehiculo.getFechaIngreso().getTime());
-        double horaCarro = (miliseg/3600000);
-        double minutosCarro = (miliseg/60000);
-        long totalHora = Math.round(horaCarro);
-        long totalMinutos = Math.round(minutosCarro);
-        int totalDia = (int)  totalHora / 24;
-        int totalHoraNuevoDia = (int) totalHora % 24;
+		double total;
+		double miliseg = (vehiculo.getFechaSalida().getTime() - vehiculo.getFechaIngreso().getTime());
+		double horaCarro = (miliseg / 3600000);
+		double minutosCarro = (miliseg / 60000);
+		long totalHora = Math.round(horaCarro);
+		long totalMinutos = Math.round(minutosCarro);
+		int totalDia = (int) totalHora / Constantes.FIN_EN_HORAS_PARA_COBRO_POR_DIA;
+		int totalHoraNuevoDia = (int) totalHora % Constantes.FIN_EN_HORAS_PARA_COBRO_POR_DIA;
 
+		if (totalHora < Constantes.VALOR_HORA_CARRO) {
+			if ((totalMinutos >= 0) && (totalHora == 0)) {
+				total = Constantes.VALOR_HORA_CARRO;
+			} else {
+				total = totalHora * Constantes.VALOR_HORA_CARRO;
+			}
+		} else if (totalHoraNuevoDia == 0 || (totalHoraNuevoDia >= Constantes.INICIO_EN_HORAS_PARA_COBRO_POR_DIA
+				&& totalHoraNuevoDia < Constantes.FIN_EN_HORAS_PARA_COBRO_POR_DIA)) {
+			total = (Constantes.VALOR_DIA_CARRO * (totalDia == 0 ? 1 : totalDia));
+		} else {
+			total = ((Constantes.VALOR_DIA_CARRO * totalDia) + (totalHoraNuevoDia * Constantes.VALOR_HORA_CARRO));
+		}
 
-        if(totalHora < 9){
-            if((totalMinutos >= 2) && (totalHora == 0)){
-            	total = 1000;
-            }else{
-            	total = totalHora * 1000;
-            }
-        }else if(totalHoraNuevoDia == 0 || (totalHoraNuevoDia >= 9 && totalHoraNuevoDia < 24)){
-        	total = (8000 * (totalDia == 0 ? 1:totalDia));
-        }else{
-        	total = ((8000 * totalDia) + (totalHoraNuevoDia * 1000));
-        }
-        
-        vehiculo.setValor(total);
-    }
+		vehiculo.setValor(total);
+	}
 }

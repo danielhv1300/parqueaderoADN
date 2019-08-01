@@ -8,7 +8,7 @@ public interface VehiculoRepositorio {
 
 //Registra el vehiculo en el parqueadero
 
-	public Vehiculo crearVehiculo(Vehiculo parqueadero);
+	public Vehiculo crearVehiculo(Vehiculo vehiculo);
 
 //Cupos disponibles por tipo de vehiculo
 

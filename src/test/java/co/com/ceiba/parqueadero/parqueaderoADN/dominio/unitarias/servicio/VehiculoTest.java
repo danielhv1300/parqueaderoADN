@@ -6,7 +6,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import java.util.Calendar;
-
+import java.util.Date;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -21,149 +21,258 @@ import co.com.ceiba.parqueadero.parqueaderoADN.dominio.servicio.ServicioActualiz
 import co.com.ceiba.parqueadero.parqueaderoADN.dominio.servicio.ServicioCrearVehiculo;
 import co.com.ceiba.parqueadero.parqueaderoADN.testdatabuilder.VehiculoTestDataBuilder;
 
-
 public class VehiculoTest {
 
-	private VehiculoRepositorio parqueaderoRepositorio;
+	private VehiculoRepositorio vehiculoRepositorio;
 
 	@Before
-	public void prepararDatos() {
+	public void alistarDatos() {
 		// arrange
-		this.parqueaderoRepositorio = mock(VehiculoRepositorio.class);
+		this.vehiculoRepositorio = mock(VehiculoRepositorio.class);
 	}
-	
+
 	@Test
 	public void vehiculoNoParqueado() {
-		
-		//Arrange
-		VehiculoTestDataBuilder parqueaderoDataBuilder = new VehiculoTestDataBuilder()
-				.tipoVehiculo(Constantes.TIPO_VEHICULO_CARRO);
 
-        Vehiculo parqueadero = parqueaderoDataBuilder.build();
+		// Arrange
+		VehiculoTestDataBuilder vehiculoDataBuilder = new VehiculoTestDataBuilder()
+				.conTipoVehiculo(Constantes.TIPO_VEHICULO_CARRO);
 
-        ServicioActualizarSalidaVehiculo salidaServicio = new ServicioActualizarSalidaVehiculo(parqueaderoRepositorio);
+		Vehiculo vehiculo = vehiculoDataBuilder.build();
 
-        when(parqueaderoRepositorio.crearVehiculo(parqueadero)).thenReturn(null);
+		ServicioActualizarSalidaVehiculo salidaServicio = new ServicioActualizarSalidaVehiculo(vehiculoRepositorio);
 
-        //Act
+		when(vehiculoRepositorio.crearVehiculo(vehiculo)).thenReturn(null);
 
-        try {
-        	salidaServicio.actualizar(parqueadero.getPlaca());
-            fail();
-        }catch (ExcepcionNoExisteRegistroVehiculo e){
-            // Assert
-            assertEquals(Vehiculo.MENSAJE_VEHICULO_NO_EXISTE_EN_PARQUEADERO, e.getMessage());
-        }
+		// Act
+
+		try {
+			salidaServicio.actualizar(vehiculo.getPlaca());
+			fail();
+		} catch (ExcepcionNoExisteRegistroVehiculo e) {
+			// Assert
+			assertEquals(Vehiculo.MENSAJE_VEHICULO_NO_EXISTE_EN_PARQUEADERO, e.getMessage());
+		}
 	}
 
-	
 	@Test
 	public void crearParqueoMoto() {
-		//Arrange
-		VehiculoTestDataBuilder vehiculoDataBuilder = new VehiculoTestDataBuilder()
-				.placa(Constantes.PLACA_MOTO)
-                .tipoVehiculo(Constantes.TIPO_VEHICULO_MOTO)
-                .cilindraje(660);
+		// Arrange
+		VehiculoTestDataBuilder vehiculoDataBuilder = new VehiculoTestDataBuilder().conPlaca(Constantes.PLACA_MOTO)
+				.conTipoVehiculo(Constantes.TIPO_VEHICULO_MOTO).conCilindraje(660);
 
-        Vehiculo vehiculo = vehiculoDataBuilder.build();
+		Vehiculo vehiculo = vehiculoDataBuilder.build();
 
-        ServicioCrearVehiculo crearServicio = new ServicioCrearVehiculo(parqueaderoRepositorio);
+		ServicioCrearVehiculo crearServicio = new ServicioCrearVehiculo(vehiculoRepositorio);
 
-        when(parqueaderoRepositorio.crearVehiculo(vehiculo)).thenReturn(vehiculo);
+		when(vehiculoRepositorio.crearVehiculo(vehiculo)).thenReturn(vehiculo);
 
-        //Act
-        Vehiculo parqueaderoCopia =  crearServicio.crear(vehiculo);
+		// Act
+		Vehiculo vehiculoCopia = crearServicio.crear(vehiculo);
 
-        //Assert
-        assertEquals(parqueaderoCopia.getId(),vehiculo.getId());
+		// Assert
+		assertEquals(vehiculoCopia.getId(), vehiculo.getId());
 	}
-	
+
 	@Test
 	public void crearParqueoCarro() {
-		//Arrange
-		VehiculoTestDataBuilder parqueaderoDataBuilder = new VehiculoTestDataBuilder()
-				.placa(Constantes.PLACA_CARRO)
-                .tipoVehiculo(Constantes.TIPO_VEHICULO_CARRO);
+		// Arrange
+		VehiculoTestDataBuilder vehiculoDataBuilder = new VehiculoTestDataBuilder().conPlaca(Constantes.PLACA_CARRO)
+				.conTipoVehiculo(Constantes.TIPO_VEHICULO_CARRO);
 
-        Vehiculo parqueadero = parqueaderoDataBuilder.build();
+		Vehiculo vehiculo = vehiculoDataBuilder.build();
 
-        ServicioCrearVehiculo crearServicio = new ServicioCrearVehiculo(parqueaderoRepositorio);
+		ServicioCrearVehiculo crearServicio = new ServicioCrearVehiculo(vehiculoRepositorio);
 
-        when(parqueaderoRepositorio.crearVehiculo(parqueadero)).thenReturn(parqueadero);
+		when(vehiculoRepositorio.crearVehiculo(vehiculo)).thenReturn(vehiculo);
 
-        //Act
-        Vehiculo parqueaderoCopia =  crearServicio.crear(parqueadero);
+		// Act
+		Vehiculo vehiculoRta = crearServicio.crear(vehiculo);
 
-        //Assert
-        assertEquals(parqueaderoCopia.getId(), parqueadero.getId());
+		// Assert
+		assertEquals(vehiculoRta.getId(), vehiculo.getId());
 	}
-	
+
 	@Test
 	public void validarCupoMoto() {
-		//Arrange
-		VehiculoTestDataBuilder parqueaderoDataBuilder = new VehiculoTestDataBuilder()
-				.placa(Constantes.PLACA_MOTO)
-                .tipoVehiculo(Constantes.TIPO_VEHICULO_MOTO)
-                .cilindraje(600);
+		// Arrange
+		VehiculoTestDataBuilder vehiculoDataBuilder = new VehiculoTestDataBuilder().conPlaca(Constantes.PLACA_MOTO)
+				.conTipoVehiculo(Constantes.TIPO_VEHICULO_MOTO).conCilindraje(600);
 
-        Vehiculo parqueadero = parqueaderoDataBuilder.build();
+		Vehiculo vehiculo = vehiculoDataBuilder.build();
 
-        ServicioCrearVehiculo crearServicio = new ServicioCrearVehiculo(parqueaderoRepositorio);
+		ServicioCrearVehiculo crearServicio = new ServicioCrearVehiculo(vehiculoRepositorio);
 
-        when(parqueaderoRepositorio.cuposPorTipoVehiculo(Constantes.TIPO_VEHICULO_MOTO)).thenReturn(Constantes.CAPACIDAD_MAXIMA_MOTOS);
+		when(vehiculoRepositorio.cuposPorTipoVehiculo(Constantes.TIPO_VEHICULO_MOTO))
+				.thenReturn(Constantes.CAPACIDAD_MAXIMA_MOTOS);
 
-        //Act
-        try {
-        	crearServicio.crear(parqueadero);
-            fail();
-        }catch (ExcepcionSinCupoDisponible e){
-            // Assert
-            assertEquals(Vehiculo.MENSAJE_SIN_CUPOS_DISPONIBLES, e.getMessage());
-        }
+		// Act
+		try {
+			crearServicio.crear(vehiculo);
+			fail();
+		} catch (ExcepcionSinCupoDisponible e) {
+			// Assert
+			assertEquals(Vehiculo.MENSAJE_SIN_CUPOS_DISPONIBLES, e.getMessage());
+		}
 	}
-	
+
 	@Test
 	public void validarCupoCarro() {
-		//Arrange
-		VehiculoTestDataBuilder parqueaderoDataBuilder = new VehiculoTestDataBuilder()
-				.placa(Constantes.PLACA_CARRO)
-                .tipoVehiculo(Constantes.TIPO_VEHICULO_CARRO);
+		// Arrange
+		VehiculoTestDataBuilder vehiculoDataBuilder = new VehiculoTestDataBuilder().conPlaca(Constantes.PLACA_CARRO)
+				.conTipoVehiculo(Constantes.TIPO_VEHICULO_CARRO);
 
-        Vehiculo parqueadero = parqueaderoDataBuilder.build();
+		Vehiculo vehiculo = vehiculoDataBuilder.build();
 
-        ServicioCrearVehiculo crearServicio = new ServicioCrearVehiculo(parqueaderoRepositorio);
+		ServicioCrearVehiculo crearServicio = new ServicioCrearVehiculo(vehiculoRepositorio);
 
-        when(parqueaderoRepositorio.cuposPorTipoVehiculo(Constantes.TIPO_VEHICULO_CARRO)).thenReturn(Constantes.CAPACIDAD_MAXIMA_CARROS);
+		when(vehiculoRepositorio.cuposPorTipoVehiculo(Constantes.TIPO_VEHICULO_CARRO))
+				.thenReturn(Constantes.CAPACIDAD_MAXIMA_CARROS);
 
-        //Act
-        try {
-        	crearServicio.crear(parqueadero);
-            fail();
-        }catch (ExcepcionSinCupoDisponible e){
-            // Assert
-            assertEquals(Vehiculo.MENSAJE_SIN_CUPOS_DISPONIBLES, e.getMessage());
-        }
+		// Act
+		try {
+			crearServicio.crear(vehiculo);
+			fail();
+		} catch (ExcepcionSinCupoDisponible e) {
+			// Assert
+			assertEquals(Vehiculo.MENSAJE_SIN_CUPOS_DISPONIBLES, e.getMessage());
+		}
 	}
-	
+
 	@Test
-    public void validarRestriccionLetraPlaca(){
-        //Arrange
-        Calendar fechaIngreso = Calendar.getInstance();
-        fechaIngreso.set(Calendar.DAY_OF_WEEK, Calendar.TUESDAY);
-        VehiculoTestDataBuilder parqueaderoDataBuilder = new VehiculoTestDataBuilder().placa("ADF123")
-                .tipoVehiculo(Constantes.TIPO_VEHICULO_CARRO).fechaIngreso(fechaIngreso.getTime());
-        Vehiculo parqueadero = parqueaderoDataBuilder.build();
+	public void validarRestriccionLetraPlaca() {
+		// Arrange
+		Calendar fechaIngreso = Calendar.getInstance();
+		fechaIngreso.set(Calendar.DAY_OF_WEEK, Calendar.TUESDAY);
+		VehiculoTestDataBuilder vehiculoDataBuilder = new VehiculoTestDataBuilder().conPlaca("ADF123")
+				.conTipoVehiculo(Constantes.TIPO_VEHICULO_CARRO).conFechaIngreso(fechaIngreso.getTime());
+		Vehiculo vehiculo = vehiculoDataBuilder.build();
 
-        ServicioCrearVehiculo crearServicio = new ServicioCrearVehiculo(parqueaderoRepositorio);
-        //Act
+		ServicioCrearVehiculo crearServicio = new ServicioCrearVehiculo(vehiculoRepositorio);
+		// Act
 
-        try {
-        	crearServicio.crear(parqueadero);
-            fail();
-        }catch (ExcepcionRestriccionPlaca e){
-            // Assert
-            assertEquals(Vehiculo.MENSAJE_RESTRICCION_POR_PLACA, e.getMessage());
-        }
-    }
+		try {
+			crearServicio.crear(vehiculo);
+			fail();
+		} catch (ExcepcionRestriccionPlaca e) {
+			// Assert
+			assertEquals(Vehiculo.MENSAJE_RESTRICCION_POR_PLACA, e.getMessage());
+		}
+	}
+
+	@Test
+	public void validarHoraMoto() {
+		// Arrange
+		double valorHora = 500;
+		int hora = 1;
+		Calendar fecha = Calendar.getInstance();
+		fecha.setTime(new Date());
+
+		fecha.set(Calendar.HOUR, fecha.get(Calendar.HOUR));
+
+		VehiculoTestDataBuilder vehiculoDataBuilder = new VehiculoTestDataBuilder()
+				.conTipoVehiculo(Constantes.TIPO_VEHICULO_MOTO).conFechaIngreso(fecha.getTime()).conCilindraje(200);
+
+		Vehiculo vehiculo = vehiculoDataBuilder.build();
+
+		ServicioActualizarSalidaVehiculo servicioSalida = new ServicioActualizarSalidaVehiculo(vehiculoRepositorio);
+		when(vehiculoRepositorio.buscarPorPlaca(vehiculo.getPlaca())).thenReturn(vehiculo);
+
+		// Act
+		servicioSalida.actualizar(vehiculo.getPlaca());
+
+		// Assert
+		assertEquals((valorHora * hora), vehiculo.getValor(), 0);
+
+	}
+
+	@Test
+	public void costoAdicionalAltoCilindrajeTest() {
+		// Arrange
+		double valorHora = 500;
+		double valorAdicional = 2000;
+		int hora = 1;
+
+		Calendar fecha = Calendar.getInstance();
+		fecha.setTime(new Date());
+
+		fecha.set(Calendar.HOUR, fecha.get(Calendar.HOUR));
+
+		VehiculoTestDataBuilder vehiculoDataBuilder = new VehiculoTestDataBuilder()
+				.conTipoVehiculo(Constantes.TIPO_VEHICULO_MOTO).conFechaIngreso(fecha.getTime()).conCilindraje(600);
+
+		Vehiculo vehiculo = vehiculoDataBuilder.build();
+
+		ServicioActualizarSalidaVehiculo servicioSalida = new ServicioActualizarSalidaVehiculo(vehiculoRepositorio);
+		when(vehiculoRepositorio.buscarPorPlaca(vehiculo.getPlaca())).thenReturn(vehiculo);
+
+		// Act
+		servicioSalida.actualizar(vehiculo.getPlaca());
+
+		// Assert
+		assertEquals((valorHora * hora) + valorAdicional, vehiculo.getValor(), 0);
+
+	}
+
+	@Test
+	public void validarHoraCarro() {
+		// Arrange
+		double valorHora = 1000;
+		int hora = 1;
+		Calendar fecha = Calendar.getInstance();
+		fecha.setTime(new Date());
+
+		fecha.set(Calendar.HOUR, fecha.get(Calendar.HOUR));
+
+		VehiculoTestDataBuilder vehiculoDataBuilder = new VehiculoTestDataBuilder()
+				.conTipoVehiculo(Constantes.TIPO_VEHICULO_CARRO).conFechaIngreso(fecha.getTime());
+
+		Vehiculo vehiculo = vehiculoDataBuilder.build();
+
+		ServicioActualizarSalidaVehiculo servicioSalida = new ServicioActualizarSalidaVehiculo(vehiculoRepositorio);
+		when(vehiculoRepositorio.buscarPorPlaca(vehiculo.getPlaca())).thenReturn(vehiculo);
+
+		// Act
+		servicioSalida.actualizar(vehiculo.getPlaca());
+
+		// Assert
+
+		assertEquals((valorHora * hora), vehiculo.getValor(), 0);
+	}
+
+	@Test
+	public void cobroDiaCarro() {
+		//Arrange
+		double valorDiaCarro = 8000;
+		int horasEnParqueadero = 9 ;
+		
+		Calendar fecha = Calendar.getInstance();
+		Calendar fechaSalida = Calendar.getInstance() ;
+		
+		fecha.setTime(new Date());
+		fechaSalida.setTime(new Date());
+		
+		fecha.set(Calendar.HOUR, Calendar.HOUR - horasEnParqueadero );
+		
+		
+		VehiculoTestDataBuilder vehiculoDataBuilder = new VehiculoTestDataBuilder()
+				.conTipoVehiculo(Constantes.TIPO_VEHICULO_CARRO).conFechaIngreso(fecha.getTime()).conFechaSalida(fechaSalida.getTime());
+		
+		Vehiculo vehiculo = vehiculoDataBuilder.build();
+		
+		
+		
+		ServicioActualizarSalidaVehiculo servicioSalida = new ServicioActualizarSalidaVehiculo(vehiculoRepositorio);
+		when(vehiculoRepositorio.buscarPorPlaca(vehiculo.getPlaca())).thenReturn(vehiculo);
+	
+		
+		
+		
+		//Act
+		servicioSalida.actualizar(vehiculo.getPlaca());
+		
+		//Assert
+		assertEquals(valorDiaCarro,vehiculo.getValor(),0);
+	}
 
 }

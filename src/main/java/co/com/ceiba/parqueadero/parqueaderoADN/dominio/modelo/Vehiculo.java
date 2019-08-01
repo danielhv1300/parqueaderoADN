@@ -25,12 +25,13 @@ public class Vehiculo {
 	private Date fechaSalida;
 	private double valor;
 	
+	public Vehiculo() {
+	}
+	
 	public Vehiculo(Long id, String placa, String tipoVehiculo, int cilindraje, Date fechaIngreso, Date fechaSalida, double total) {
 		ValidadorVehiculo.validarDatoObligatorio(placa, MENSAJE_CAMPO_PLACA_OBLIGATORIO);
 		ValidadorVehiculo.validarDatoObligatorio(tipoVehiculo,MENSAJE_CAMPO_TIPO_VEHICULO_OBLIGATORIO);
-		
 		ValidadorVehiculo.validarTipoVehiculo(tipoVehiculo, MENSAJE_VALOR_CAMPO_TIPO_VEHICULO_INCORRECTO);
-		
 		if(tipoVehiculo.equalsIgnoreCase(Constantes.TIPO_VEHICULO_MOTO)) {
 			ValidadorVehiculo.validarDatoObligatorio(cilindraje, MENSAJE_CAMPO_CILINDRAJE_OBLIGATORIO);
 		}

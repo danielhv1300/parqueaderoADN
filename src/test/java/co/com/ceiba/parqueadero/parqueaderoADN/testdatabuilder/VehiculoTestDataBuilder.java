@@ -26,37 +26,37 @@ public class VehiculoTestDataBuilder {
         this.total = 0;
     }
 	
-	public VehiculoTestDataBuilder id(Long id) {
-        this.id = id;
+	public VehiculoTestDataBuilder conId(Long conId) {
+        this.id = conId;
         return this;
     }
 
-    public VehiculoTestDataBuilder tipoVehiculo(String tipoVehiculo) {
-        this.tipoVehiculo = tipoVehiculo;
+    public VehiculoTestDataBuilder conTipoVehiculo(String conTipoVehiculo) {
+        this.tipoVehiculo = conTipoVehiculo;
         return this;
     }
 
-    public VehiculoTestDataBuilder placa(String placa) {
-        this.placa = placa;
+    public VehiculoTestDataBuilder conPlaca(String conPlaca) {
+        this.placa = conPlaca;
         return this;
     }
 
-    public VehiculoTestDataBuilder cilindraje(int cilindraje) {
-        this.cilindraje = cilindraje;
+    public VehiculoTestDataBuilder conCilindraje(int conCilindraje) {
+        this.cilindraje = conCilindraje;
         return this;
     }
 
-    public VehiculoTestDataBuilder fechaIngreso(Date fechaIngreso) {
-        this.fechaIngreso = fechaIngreso;
+    public VehiculoTestDataBuilder conFechaIngreso(Date conFechaIngreso) {
+        this.fechaIngreso = conFechaIngreso;
         return this;
     }
 
-    public VehiculoTestDataBuilder fechaSalida(Date fechaSalida) {
-        this.fechaSalida = fechaSalida;
+    public VehiculoTestDataBuilder conFechaSalida(Date conFechaSalida) {
+        this.fechaSalida = conFechaSalida;
         return this;
     }
-    public VehiculoTestDataBuilder total(long total) {
-        this.total = total;
+    public VehiculoTestDataBuilder conTotal(double conTotal) {
+        this.total = conTotal;
         return this;
     }   
 
