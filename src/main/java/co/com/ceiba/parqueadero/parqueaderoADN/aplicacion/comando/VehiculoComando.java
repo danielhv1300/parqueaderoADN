@@ -1,7 +1,8 @@
 package co.com.ceiba.parqueadero.parqueaderoADN.aplicacion.comando;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.util.Calendar;
+
 
 
 public class VehiculoComando implements Serializable {
@@ -12,8 +13,8 @@ public class VehiculoComando implements Serializable {
 	private String placa;
 	private String tipoVehiculo;
 	private int cilindraje;
-	private Date fechaIngreso;
-	private Date fechaSalida;
+	private Calendar fechaIngreso;
+	private Calendar fechaSalida;
 	private double total;
 
 	public VehiculoComando() {}
@@ -56,19 +57,19 @@ public class VehiculoComando implements Serializable {
 		this.cilindraje = cilindraje;
 	}
 
-	public Date getFechaIngreso() {
+	public Calendar getFechaIngreso() {
 		return fechaIngreso;
 	}
 
-	public void setFechaIngreso(Date fechaIngreso) {
+	public void setFechaIngreso(Calendar fechaIngreso) {
 		this.fechaIngreso = fechaIngreso;
 	}
 
-	public Date getFechaSalida() {
+	public Calendar getFechaSalida() {
 		return fechaSalida;
 	}
 
-	public void setFechaSalida(Date fechaSalida) {
+	public void setFechaSalida(Calendar fechaSalida) {
 		this.fechaSalida = fechaSalida;
 	}
 

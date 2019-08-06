@@ -144,8 +144,9 @@ public class VehiculoTest {
 		// Arrange
 		Calendar fechaIngreso = Calendar.getInstance();
 		fechaIngreso.set(Calendar.DAY_OF_WEEK, Calendar.TUESDAY);
-		VehiculoTestDataBuilder vehiculoDataBuilder = new VehiculoTestDataBuilder().conPlaca("ADF123")
-				.conTipoVehiculo(Constantes.TIPO_VEHICULO_CARRO).conFechaIngreso(fechaIngreso.getTime());
+		VehiculoTestDataBuilder vehiculoDataBuilder = new VehiculoTestDataBuilder()
+				.conPlaca(Constantes.PLACA_CARRO_CON_A).conTipoVehiculo(Constantes.TIPO_VEHICULO_CARRO)
+				.conFechaIngreso(fechaIngreso);
 		Vehiculo vehiculo = vehiculoDataBuilder.build();
 
 		ServicioCrearVehiculo crearServicio = new ServicioCrearVehiculo(vehiculoRepositorio);
@@ -171,7 +172,7 @@ public class VehiculoTest {
 		fecha.set(Calendar.HOUR, fecha.get(Calendar.HOUR));
 
 		VehiculoTestDataBuilder vehiculoDataBuilder = new VehiculoTestDataBuilder()
-				.conTipoVehiculo(Constantes.TIPO_VEHICULO_MOTO).conFechaIngreso(fecha.getTime()).conCilindraje(200);
+				.conTipoVehiculo(Constantes.TIPO_VEHICULO_MOTO).conFechaIngreso(fecha).conCilindraje(200);
 
 		Vehiculo vehiculo = vehiculoDataBuilder.build();
 
@@ -194,12 +195,12 @@ public class VehiculoTest {
 		int hora = 1;
 
 		Calendar fecha = Calendar.getInstance();
-		fecha.setTime(new Date());
+
 
 		fecha.set(Calendar.HOUR, fecha.get(Calendar.HOUR));
 
 		VehiculoTestDataBuilder vehiculoDataBuilder = new VehiculoTestDataBuilder()
-				.conTipoVehiculo(Constantes.TIPO_VEHICULO_MOTO).conFechaIngreso(fecha.getTime()).conCilindraje(600);
+				.conTipoVehiculo(Constantes.TIPO_VEHICULO_MOTO).conFechaIngreso(fecha).conCilindraje(600);
 
 		Vehiculo vehiculo = vehiculoDataBuilder.build();
 
@@ -220,12 +221,11 @@ public class VehiculoTest {
 		double valorHora = 1000;
 		int hora = 1;
 		Calendar fecha = Calendar.getInstance();
-		fecha.setTime(new Date());
 
 		fecha.set(Calendar.HOUR, fecha.get(Calendar.HOUR));
 
 		VehiculoTestDataBuilder vehiculoDataBuilder = new VehiculoTestDataBuilder()
-				.conTipoVehiculo(Constantes.TIPO_VEHICULO_CARRO).conFechaIngreso(fecha.getTime());
+				.conTipoVehiculo(Constantes.TIPO_VEHICULO_CARRO).conFechaIngreso(fecha);
 
 		Vehiculo vehiculo = vehiculoDataBuilder.build();
 
@@ -242,37 +242,34 @@ public class VehiculoTest {
 
 	@Test
 	public void cobroDiaCarro() {
-		//Arrange
+		// Arrange
 		double valorDiaCarro = 8000;
-		int horasEnParqueadero = 9 ;
-		
+		int horasEnParqueadero = 9;
+
 		Calendar fecha = Calendar.getInstance();
-		Calendar fechaSalida = Calendar.getInstance() ;
-		
-		fecha.setTime(new Date());
+		Calendar fechaSalida = Calendar.getInstance();
+
 		fechaSalida.setTime(new Date());
-		
-		fecha.set(Calendar.HOUR, Calendar.HOUR - horasEnParqueadero );
-		
-		
+
+		fecha.set(Calendar.HOUR, Calendar.HOUR - horasEnParqueadero);
+		System.out.println(fecha.getTime());
+		System.out.println(fechaSalida.getTime());
+
 		VehiculoTestDataBuilder vehiculoDataBuilder = new VehiculoTestDataBuilder()
-				.conTipoVehiculo(Constantes.TIPO_VEHICULO_CARRO).conFechaIngreso(fecha.getTime()).conFechaSalida(fechaSalida.getTime());
-		
+				.conTipoVehiculo(Constantes.TIPO_VEHICULO_CARRO).conFechaIngreso(fecha).conFechaSalida(fechaSalida);
+
 		Vehiculo vehiculo = vehiculoDataBuilder.build();
-		
-		
-		
+
 		ServicioActualizarSalidaVehiculo servicioSalida = new ServicioActualizarSalidaVehiculo(vehiculoRepositorio);
 		when(vehiculoRepositorio.buscarPorPlaca(vehiculo.getPlaca())).thenReturn(vehiculo);
-	
-		
-		
-		
-		//Act
+
+		// Act
 		servicioSalida.actualizar(vehiculo.getPlaca());
-		
-		//Assert
-		assertEquals(valorDiaCarro,vehiculo.getValor(),0);
+
+		// Assert
+		assertEquals("El auto entró:" + vehiculo.getFechaIngreso().getTime() + " y salió"
+				+ vehiculo.getFechaSalida().getTime(), valorDiaCarro, vehiculo.getValor(), 0);
+
 	}
 
 }

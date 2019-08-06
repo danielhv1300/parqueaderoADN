@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="co.com.ceiba.parqueadero.parqueaderoADN.dominio.unitarias.servicio.VehiculoTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2019-08-01T14:53:34" hostname="DANIEL-HERNANDEZ" time="0.009">
+<testsuite name="co.com.ceiba.parqueadero.parqueaderoADN.dominio.unitarias.servicio.VehiculoTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2019-08-06T14:22:24" hostname="DANIEL-HERNANDEZ" time="0.05">
   <properties/>
-  <testcase name="validarCupoCarro" classname="co.com.ceiba.parqueadero.parqueaderoADN.dominio.unitarias.servicio.VehiculoTest" time="0.001"/>
-  <testcase name="cobroDiaCarro" classname="co.com.ceiba.parqueadero.parqueaderoADN.dominio.unitarias.servicio.VehiculoTest" time="0.003"/>
-  <testcase name="validarCupoMoto" classname="co.com.ceiba.parqueadero.parqueaderoADN.dominio.unitarias.servicio.VehiculoTest" time="0.001"/>
-  <testcase name="vehiculoNoParqueado" classname="co.com.ceiba.parqueadero.parqueaderoADN.dominio.unitarias.servicio.VehiculoTest" time="0.0"/>
-  <testcase name="crearParqueoMoto" classname="co.com.ceiba.parqueadero.parqueaderoADN.dominio.unitarias.servicio.VehiculoTest" time="0.0"/>
-  <testcase name="validarRestriccionLetraPlaca" classname="co.com.ceiba.parqueadero.parqueaderoADN.dominio.unitarias.servicio.VehiculoTest" time="0.001"/>
-  <testcase name="crearParqueoCarro" classname="co.com.ceiba.parqueadero.parqueaderoADN.dominio.unitarias.servicio.VehiculoTest" time="0.0"/>
-  <testcase name="costoAdicionalAltoCilindrajeTest" classname="co.com.ceiba.parqueadero.parqueaderoADN.dominio.unitarias.servicio.VehiculoTest" time="0.001"/>
-  <testcase name="validarHoraCarro" classname="co.com.ceiba.parqueadero.parqueaderoADN.dominio.unitarias.servicio.VehiculoTest" time="0.001"/>
-  <testcase name="validarHoraMoto" classname="co.com.ceiba.parqueadero.parqueaderoADN.dominio.unitarias.servicio.VehiculoTest" time="0.0"/>
-  <system-out><![CDATA[]]></system-out>
+  <testcase name="validarCupoCarro" classname="co.com.ceiba.parqueadero.parqueaderoADN.dominio.unitarias.servicio.VehiculoTest" time="0.002"/>
+  <testcase name="cobroDiaCarro" classname="co.com.ceiba.parqueadero.parqueaderoADN.dominio.unitarias.servicio.VehiculoTest" time="0.024"/>
+  <testcase name="validarCupoMoto" classname="co.com.ceiba.parqueadero.parqueaderoADN.dominio.unitarias.servicio.VehiculoTest" time="0.002"/>
+  <testcase name="vehiculoNoParqueado" classname="co.com.ceiba.parqueadero.parqueaderoADN.dominio.unitarias.servicio.VehiculoTest" time="0.002"/>
+  <testcase name="crearParqueoMoto" classname="co.com.ceiba.parqueadero.parqueaderoADN.dominio.unitarias.servicio.VehiculoTest" time="0.001"/>
+  <testcase name="validarRestriccionLetraPlaca" classname="co.com.ceiba.parqueadero.parqueaderoADN.dominio.unitarias.servicio.VehiculoTest" time="0.002"/>
+  <testcase name="crearParqueoCarro" classname="co.com.ceiba.parqueadero.parqueaderoADN.dominio.unitarias.servicio.VehiculoTest" time="0.002"/>
+  <testcase name="costoAdicionalAltoCilindrajeTest" classname="co.com.ceiba.parqueadero.parqueaderoADN.dominio.unitarias.servicio.VehiculoTest" time="0.003"/>
+  <testcase name="validarHoraCarro" classname="co.com.ceiba.parqueadero.parqueaderoADN.dominio.unitarias.servicio.VehiculoTest" time="0.003"/>
+  <testcase name="validarHoraMoto" classname="co.com.ceiba.parqueadero.parqueaderoADN.dominio.unitarias.servicio.VehiculoTest" time="0.002"/>
+  <system-out><![CDATA[Tue Aug 06 01:22:24 COT 2019
+Tue Aug 06 09:22:24 COT 2019
+]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -1,7 +1,6 @@
 package co.com.ceiba.parqueadero.parqueaderoADN.dominio.servicio;
 
 import java.util.Calendar;
-import java.util.Date;
 
 import co.com.ceiba.parqueadero.parqueaderoADN.dominio.constantes.Constantes;
 import co.com.ceiba.parqueadero.parqueaderoADN.dominio.excepcion.ExcepcionPlacaVehiculoDuplicada;
@@ -21,7 +20,7 @@ public class ServicioCrearVehiculo {
 	public Vehiculo crear(Vehiculo vehiculo){
 		validarRegistro(vehiculo.getPlaca());
 		validarCupo(vehiculo.getTipoVehiculo());
-		validarEntrada(vehiculo.getPlaca(),vehiculo.getFechaIngreso());
+		validarEntrada(vehiculo.getPlaca());
         return this.vehiculoRepositorio.crearVehiculo(vehiculo);
     }
 	
@@ -43,12 +42,17 @@ public class ServicioCrearVehiculo {
 		}
     }
 	
-	private void validarEntrada(String placa, Date fechaIngreso) {
-		Calendar fechaActual = Calendar.getInstance();
-		fechaActual.setTimeInMillis(fechaIngreso.getTime());
-		int day = fechaActual.get(Calendar.DAY_OF_WEEK);
-		if (placa.startsWith(Vehiculo.LETRA_DE_RESTRICCION_POR_PLACA) || placa.startsWith("a") && (day != Calendar.MONDAY || day != Calendar.SUNDAY)) {
+	private void validarEntrada(String placa) {
+		Calendar fechaActual = getFechaActual();
+		//Date fechaActual = getFechaActual();
+		//fechaActual.setTimeInMillis(fechaIngreso.getTime());
+		int dia = fechaActual .get(Calendar.DAY_OF_WEEK);
+		if (placa.toUpperCase().startsWith(Vehiculo.LETRA_DE_RESTRICCION_POR_PLACA) && (dia != Calendar.MONDAY && dia != Calendar.SUNDAY)) {
 			throw new ExcepcionRestriccionPlaca(Vehiculo.MENSAJE_RESTRICCION_POR_PLACA);
 		}
     }
+	
+	public Calendar getFechaActual() {
+		return Calendar.getInstance();
+	}
 }

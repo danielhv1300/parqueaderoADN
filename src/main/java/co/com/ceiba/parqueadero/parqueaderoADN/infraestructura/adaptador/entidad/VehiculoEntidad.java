@@ -1,5 +1,6 @@
 package co.com.ceiba.parqueadero.parqueaderoADN.infraestructura.adaptador.entidad;
 
+import java.util.Calendar;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -15,7 +16,7 @@ public class VehiculoEntidad {
 	public VehiculoEntidad() {}
 
 	
-	public VehiculoEntidad(Long id, String placa, String tipoVehiculo, int cilindraje, Date fechaIngreso, Date fechaSalida, double valorTotal) {
+	public VehiculoEntidad(Long id, String placa, String tipoVehiculo, int cilindraje, Calendar fechaIngreso, Calendar fechaSalida, double valorTotal) {
 		this.id = id;
 		this.placa = placa;
 		this.tipoVehiculo = tipoVehiculo;
@@ -40,10 +41,10 @@ public class VehiculoEntidad {
 	private int cilindraje;
 	
 	@Column(nullable = false)
-	private Date fechaIngreso;
+	private Calendar fechaIngreso;
 	
 	@Column
-	private Date fechaSalida;
+	private Calendar fechaSalida;
 	
 	@Column
 	private double valorTotal;
@@ -80,19 +81,19 @@ public class VehiculoEntidad {
 		this.cilindraje = cilindraje;
 	}
 
-	public Date getFechaIngreso() {
+	public Calendar getFechaIngreso() {
 		return fechaIngreso;
 	}
 
-	public void setFechaIngreso(Date fechaIngreso) {
+	public void setFechaIngreso(Calendar fechaIngreso) {
 		this.fechaIngreso = fechaIngreso;
 	}
 
-	public Date getFechaSalida() {
+	public Calendar getFechaSalida() {
 		return fechaSalida;
 	}
 
-	public void setFechaSalida(Date fechaSalida) {
+	public void setFechaSalida(Calendar fechaSalida) {
 		this.fechaSalida = fechaSalida;
 	}
 

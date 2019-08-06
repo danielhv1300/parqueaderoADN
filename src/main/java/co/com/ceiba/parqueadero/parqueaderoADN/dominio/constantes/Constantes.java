@@ -10,6 +10,7 @@ public final class Constantes {
 	public static final String TIPO_VEHICULO_CARRO  = "CARRO";
 	public static final String PLACA_MOTO  = "FLM54";
 	public static final String PLACA_CARRO  = "EOW328";
+	public static final String PLACA_CARRO_CON_A  = "ASD123";
 	public static final String VACIO  = "";
 	
 	

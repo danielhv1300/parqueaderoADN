@@ -1,5 +1,6 @@
 package co.com.ceiba.parqueadero.parqueaderoADN.testdatabuilder;
 
+import java.util.Calendar;
 import java.util.Date;
 
 import co.com.ceiba.parqueadero.parqueaderoADN.dominio.constantes.Constantes;
@@ -11,9 +12,9 @@ public class VehiculoTestDataBuilder {
 	private String placa;
 	private String tipoVehiculo;
 	private int cilindraje;
-	private Date fechaIngreso;
-	private Date fechaSalida;
-	private double total;
+	private Calendar fechaIngreso;
+	private Calendar fechaSalida;
+	private double valor;
 	
 	
     public VehiculoTestDataBuilder(){
@@ -21,9 +22,9 @@ public class VehiculoTestDataBuilder {
         this.placa = "HJI876";
         this.tipoVehiculo = Constantes.TIPO_VEHICULO_CARRO;        
         this.cilindraje = 0;
-        this.fechaIngreso = new  Date();
+        this.fechaIngreso = Calendar.getInstance();
         this.fechaSalida = null;
-        this.total = 0;
+        this.valor = 0;
     }
 	
 	public VehiculoTestDataBuilder conId(Long conId) {
@@ -46,21 +47,21 @@ public class VehiculoTestDataBuilder {
         return this;
     }
 
-    public VehiculoTestDataBuilder conFechaIngreso(Date conFechaIngreso) {
+    public VehiculoTestDataBuilder conFechaIngreso(Calendar conFechaIngreso) {
         this.fechaIngreso = conFechaIngreso;
         return this;
     }
 
-    public VehiculoTestDataBuilder conFechaSalida(Date conFechaSalida) {
+    public VehiculoTestDataBuilder conFechaSalida(Calendar conFechaSalida) {
         this.fechaSalida = conFechaSalida;
         return this;
     }
-    public VehiculoTestDataBuilder conTotal(double conTotal) {
-        this.total = conTotal;
+    public VehiculoTestDataBuilder conValor(double conValor) {
+        this.valor = conValor;
         return this;
     }   
 
     public Vehiculo build(){
-    	return new Vehiculo(id, placa, tipoVehiculo, cilindraje, fechaIngreso, fechaSalida, total);
+    	return new Vehiculo(id, placa, tipoVehiculo, cilindraje, fechaIngreso, fechaSalida, valor);
     }
 }

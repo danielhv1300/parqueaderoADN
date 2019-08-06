@@ -1,5 +1,6 @@
 package co.com.ceiba.parqueadero.parqueaderoADN.dominio.modelo;
 
+import java.util.Calendar;
 import java.util.Date;
 
 import co.com.ceiba.parqueadero.parqueaderoADN.dominio.constantes.Constantes;
@@ -12,7 +13,7 @@ public class Vehiculo {
 	public static final String MENSAJE_CAMPO_CILINDRAJE_OBLIGATORIO = "Es obligatorio indicar el cilindraje de la moto";
 	public static final String MENSAJE_NO_SE_ENCUENTRA_REGISTRO_VEHICULO = "El registro no existe";
 	public static final String MENSAJE_SIN_CUPOS_DISPONIBLES = "En el momento el parqueadero no cuenta con un espacio disponible para este tipo de vehiculo";
-	public static final String MENSAJE_RESTRICCION_POR_PLACA = "Por politicas del parqueadero el vehiculo no puede ingresar el dia de hoy debido a que su placa inica por \"A\"";
+	public static final String MENSAJE_RESTRICCION_POR_PLACA = "Por politicas del parqueadero el vehiculo no puede ingresar el dia de hoy debido a que su placa inicia por \"A\"";
 	public static final String MENSAJE_VEHICULO_YA_EXISTE_EN_PARQUEADERO = "Ya existe un vehiculo dentro del parqueadero con la placa que desea ingresar";
 	public static final String MENSAJE_VEHICULO_NO_EXISTE_EN_PARQUEADERO = "El vehiculo ya no se encuentra en el parqueadero";
 	public static final String LETRA_DE_RESTRICCION_POR_PLACA = "A";
@@ -21,14 +22,15 @@ public class Vehiculo {
 	private String placa;
 	private String tipoVehiculo;
 	private int cilindraje;
-	private Date fechaIngreso;
-	private Date fechaSalida;
+	private Calendar fechaIngreso;
+	private Calendar fechaSalida;
 	private double valor;
 	
 	public Vehiculo() {
+
 	}
 	
-	public Vehiculo(Long id, String placa, String tipoVehiculo, int cilindraje, Date fechaIngreso, Date fechaSalida, double total) {
+	public Vehiculo(Long id, String placa, String tipoVehiculo, int cilindraje, Calendar fechaIngreso, Calendar fechaSalida, double valor) {
 		ValidadorVehiculo.validarDatoObligatorio(placa, MENSAJE_CAMPO_PLACA_OBLIGATORIO);
 		ValidadorVehiculo.validarDatoObligatorio(tipoVehiculo,MENSAJE_CAMPO_TIPO_VEHICULO_OBLIGATORIO);
 		ValidadorVehiculo.validarTipoVehiculo(tipoVehiculo, MENSAJE_VALOR_CAMPO_TIPO_VEHICULO_INCORRECTO);
@@ -42,7 +44,7 @@ public class Vehiculo {
 		this.cilindraje = cilindraje;
 		this.fechaIngreso = fechaIngreso;
 		this.fechaSalida = fechaSalida;
-		this.valor = total;
+		this.valor = valor;
 	}
 
 	public Long getId() {
@@ -77,19 +79,19 @@ public class Vehiculo {
 		this.cilindraje = cilindraje;
 	}
 
-	public Date getFechaIngreso() {
+	public Calendar getFechaIngreso() {
 		return fechaIngreso;
 	}
 
-	public void setFechaIngreso(Date fechaIngreso) {
+	public void setFechaIngreso(Calendar fechaIngreso) {
 		this.fechaIngreso = fechaIngreso;
 	}
 
-	public Date getFechaSalida() {
+	public Calendar getFechaSalida() {
 		return fechaSalida;
 	}
 
-	public void setFechaSalida(Date fechaSalida) {
+	public void setFechaSalida(Calendar fechaSalida) {
 		this.fechaSalida = fechaSalida;
 	}
 
