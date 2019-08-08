@@ -1,6 +1,5 @@
 Manifest-Version: 1.0
-Start-Class: co.com.ceiba.parqueadero.parqueaderoADN.ParqueaderoAdnApp
- lication
+Start-Class: co.com.ceiba.parqueadero.adn.ParqueaderoAdnApplication
 Spring-Boot-Classes: WEB-INF/classes/
 Spring-Boot-Lib: WEB-INF/lib/
 Spring-Boot-Version: 2.1.6.RELEASE
