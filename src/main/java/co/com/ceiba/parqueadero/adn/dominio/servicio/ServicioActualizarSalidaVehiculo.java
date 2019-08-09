@@ -46,9 +46,9 @@ public class ServicioActualizarSalidaVehiculo {
 		double value;
 		Date fechaIngreso = vehiculo.getFechaIngreso().getTime();
 		Date fechaSalida = vehiculo.getFechaSalida().getTime();
-		double miliSegundo = (fechaSalida.getTime() - fechaIngreso.getTime());
-		double hora = (miliSegundo / 3600000);
-		double minuto = (miliSegundo / 60000);
+		double tiempoEnParqueaderoEnMiliSegundos = (fechaSalida.getTime() - fechaIngreso.getTime());
+		double hora = (tiempoEnParqueaderoEnMiliSegundos / 3600000);
+		double minuto = (tiempoEnParqueaderoEnMiliSegundos / 60000);
 		long totalHora = Math.round(hora);
 		long totalMinutos = Math.round(minuto);
 		int totalDia = (int) totalHora / Constantes.FIN_EN_HORAS_PARA_COBRO_POR_DIA;
@@ -62,7 +62,7 @@ public class ServicioActualizarSalidaVehiculo {
 			}
 		} else if (totalHoraNuevoDia == 0 || (totalHoraNuevoDia >= Constantes.INICIO_EN_HORAS_PARA_COBRO_POR_DIA
 				&& totalHoraNuevoDia < Constantes.FIN_EN_HORAS_PARA_COBRO_POR_DIA)) {
-			value = (Constantes.VALOR_DIA_MOTO);
+			value = (Constantes.VALOR_DIA_MOTO * (totalDia == 0 ? 1:totalDia));
 		} else {
 			value = ((Constantes.VALOR_DIA_MOTO * totalDia) + (totalHoraNuevoDia * Constantes.VALOR_HORA_MOTO));
 		}
@@ -86,7 +86,7 @@ public class ServicioActualizarSalidaVehiculo {
 		int totalDia = (int) totalHora / Constantes.FIN_EN_HORAS_PARA_COBRO_POR_DIA;
 		int totalHoraNuevoDia = (int) totalHora % Constantes.FIN_EN_HORAS_PARA_COBRO_POR_DIA;
 
-		if (totalHora < Constantes.FIN_EN_HORAS_PARA_COBRO_POR_DIA) {
+		if (totalHora < Constantes.INICIO_EN_HORAS_PARA_COBRO_POR_DIA) {
 			if ((totalMinutos >= 0) && (totalHora == 0)) {
 				valor = Constantes.VALOR_HORA_CARRO;
 			} else {
@@ -94,7 +94,7 @@ public class ServicioActualizarSalidaVehiculo {
 			}
 		} else if (totalHoraNuevoDia == 0 || (totalHoraNuevoDia >= Constantes.INICIO_EN_HORAS_PARA_COBRO_POR_DIA
 				&& totalHoraNuevoDia < Constantes.FIN_EN_HORAS_PARA_COBRO_POR_DIA)) {
-			valor = (Constantes.VALOR_DIA_CARRO);
+			valor = (Constantes.VALOR_DIA_CARRO * (totalDia == 0 ? 1:totalDia));
 		} else {
 			valor = ((Constantes.VALOR_DIA_CARRO * totalDia) + (totalHoraNuevoDia * Constantes.VALOR_HORA_CARRO));
 		}

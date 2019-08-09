@@ -49,7 +49,7 @@ public class ServicioCrearVehiculo {
 	private void validarEntrada(String placa) {
 		Calendar fecha = fechaUtil.getFechaActual();
 		int dia = fecha.get(Calendar.DAY_OF_WEEK);
-		if (placa.toUpperCase().startsWith(Vehiculo.LETRA_DE_RESTRICCION_POR_PLACA) && (dia != Calendar.MONDAY && dia != Calendar.SUNDAY)) {
+		if (placa.toUpperCase().charAt(0) == Vehiculo.LETRA_DE_RESTRICCION_POR_PLACA) {
 			throw new ExcepcionRestriccionPlaca(Vehiculo.MENSAJE_RESTRICCION_POR_PLACA);
 		}
     }
