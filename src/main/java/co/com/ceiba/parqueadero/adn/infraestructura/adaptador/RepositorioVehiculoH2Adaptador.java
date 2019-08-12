@@ -17,7 +17,7 @@ public class RepositorioVehiculoH2Adaptador implements VehiculoRepositorio {
 	private RepositorioVehiculoJPA repositorioVehiculoJPA;
 	
 
-	public RepositorioVehiculoH2Adaptador(RepositorioVehiculoJPA vehiculoRepositorioJPA, VehiculoMapeador mapeador) {
+	public RepositorioVehiculoH2Adaptador(RepositorioVehiculoJPA vehiculoRepositorioJPA) {
 		this.repositorioVehiculoJPA = vehiculoRepositorioJPA;
 	}
 

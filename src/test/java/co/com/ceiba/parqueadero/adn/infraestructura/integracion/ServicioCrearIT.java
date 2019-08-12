@@ -3,6 +3,7 @@ package co.com.ceiba.parqueadero.adn.infraestructura.integracion;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import org.junit.Before;
@@ -47,7 +48,7 @@ public class ServicioCrearIT {
 	@Test
 	public void getListaTest() throws Exception {
 		// Arrange , Act y Assert
-		mockMvc.perform(get("/vehiculo").contentType(MediaType.APPLICATION_JSON))
+		mockMvc.perform(get("/vehiculo").contentType(MediaType.APPLICATION_JSON_UTF8))
 		.andExpect(status().isOk())
 		.andReturn().getResponse().getContentAsString();
 	}
@@ -60,8 +61,18 @@ public class ServicioCrearIT {
 
 		// Act y Assert
 		mockMvc.perform(
-				post("/vehiculo").contentType(MediaType.APPLICATION_JSON).content(jsonToString(vehiculoComando)))
+				post("/vehiculo").contentType(MediaType.APPLICATION_JSON_UTF8).content(jsonToString(vehiculoComando)))
 				.andExpect(status().isOk());
+
+	}
+	
+		@Test
+	public void putSalidaVehiculoTest() throws Exception {
+		// Arrange
+		String placa = "MMM000";
+		// Act y Assert
+		mockMvc.perform(put("/vehiculo/" + placa).contentType(MediaType.APPLICATION_JSON_UTF8))
+		.andExpect(status().isOk());
 
 	}
 
