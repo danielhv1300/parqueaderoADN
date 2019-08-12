@@ -1,6 +1,8 @@
 package co.com.ceiba.parqueadero.adn.infraestructura.adaptador;
 
 import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Repository;
 
@@ -11,22 +13,21 @@ import co.com.ceiba.parqueadero.adn.infraestructura.adaptador.repositorio.Reposi
 import co.com.ceiba.parqueadero.adn.infraestructura.mapeador.VehiculoMapeador;
 
 @Repository
-public class RepositorioVehiculoH2Adaptador implements VehiculoRepositorio{
+public class RepositorioVehiculoH2Adaptador implements VehiculoRepositorio {
 
 	private RepositorioVehiculoJPA repositorioVehiculoJPA;
 	private VehiculoMapeador mapeador;
-	
-	public RepositorioVehiculoH2Adaptador(RepositorioVehiculoJPA vehiculoRepositorioJPA, VehiculoMapeador mapeador){
-        this.repositorioVehiculoJPA = vehiculoRepositorioJPA;
-        this.mapeador = mapeador;
-    }
-	    
+
+	public RepositorioVehiculoH2Adaptador(RepositorioVehiculoJPA vehiculoRepositorioJPA, VehiculoMapeador mapeador) {
+		this.repositorioVehiculoJPA = vehiculoRepositorioJPA;
+		this.mapeador = mapeador;
+	}
+
 	@Override
-	public Vehiculo crearVehiculo(Vehiculo vehiculo) {
+	public Vehiculo crear(Vehiculo vehiculo) {
 		VehiculoEntidad vehiculoEntidad = repositorioVehiculoJPA.save(mapeador.convertirAEntidad(vehiculo));
 		return mapeador.convertirADominio(vehiculoEntidad);
 	}
-
 
 	@Override
 	public int cuposPorTipoVehiculo(String tipoVehiculo) {
@@ -34,14 +35,14 @@ public class RepositorioVehiculoH2Adaptador implements VehiculoRepositorio{
 	}
 
 	@Override
-	public boolean existeVehiculo(String placa) {
+	public boolean existe(String placa) {
 		return repositorioVehiculoJPA.existeVehiculo(placa);
 	}
 
 	@Override
 	public List<Vehiculo> buscarRegistroVehiculos() {
 		List<VehiculoEntidad> listaVehiculoEntidad = repositorioVehiculoJPA.buscarRegistroVehiculos();
-		return mapeador.listaConvertirADominio(listaVehiculoEntidad);
+		return listaVehiculoEntidad.stream().map(VehiculoMapeador::convertirADominio).collect(Collectors.toList());
 	}
 
 	@Override

@@ -1,5 +1,6 @@
 package co.com.ceiba.parqueadero.adn.infraestructura.excepcion;
 
+
 public class ExcepcionInfraestructura {
     private String nombre;
     private String mensaje;

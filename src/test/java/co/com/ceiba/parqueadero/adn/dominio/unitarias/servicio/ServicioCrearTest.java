@@ -6,7 +6,6 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import java.util.Calendar;
-import java.util.Date;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -46,7 +45,7 @@ public class ServicioCrearTest {
 		ServicioActualizarSalidaVehiculo salidaServicio = new ServicioActualizarSalidaVehiculo(vehiculoRepositorio,
 				fechaUtil);
 
-		when(vehiculoRepositorio.crearVehiculo(vehiculo)).thenReturn(null);
+		when(vehiculoRepositorio.crear(vehiculo)).thenReturn(null);
 
 		// Act
 
@@ -70,7 +69,7 @@ public class ServicioCrearTest {
 		ServicioCrearVehiculo crearServicio = new ServicioCrearVehiculo(vehiculoRepositorio, fechaUtil);
 		when(fechaUtil.getFechaActual()).thenCallRealMethod();
 
-		when(vehiculoRepositorio.crearVehiculo(vehiculo)).thenReturn(vehiculo);
+		when(vehiculoRepositorio.crear(vehiculo)).thenReturn(vehiculo);
 		// Act
 		Vehiculo vehiculoCopia = crearServicio.crear(vehiculo);
 
@@ -89,7 +88,7 @@ public class ServicioCrearTest {
 		ServicioCrearVehiculo crearServicio = new ServicioCrearVehiculo(vehiculoRepositorio, fechaUtil);
 
 		when(fechaUtil.getFechaActual()).thenCallRealMethod();
-		when(vehiculoRepositorio.crearVehiculo(vehiculo)).thenReturn(vehiculo);
+		when(vehiculoRepositorio.crear(vehiculo)).thenReturn(vehiculo);
 
 		// Act
 		Vehiculo vehiculoRta = crearServicio.crear(vehiculo);
@@ -144,18 +143,17 @@ public class ServicioCrearTest {
 		}
 	}
 
-	
 	@Test
 	public void cuandoVehiculoConPlacaQueIniciaConLetraAIntentaIngresarAlParqueaderoEntoncesSistemaRetornaExcepcionNoPuedeEntrarHoyNoEsLunesODomingo() {
 
 		// Arrange
 		Calendar fechaIngreso = Calendar.getInstance();
 		fechaIngreso.set(Calendar.DAY_OF_WEEK, Calendar.TUESDAY);
-		
+
 		VehiculoTestDataBuilder vehiculoDataBuilder = new VehiculoTestDataBuilder()
 				.conPlaca(Constantes.PLACA_CARRO_CON_A).conTipoVehiculo(Constantes.TIPO_VEHICULO_CARRO)
 				.conFechaIngreso(fechaIngreso);
-		
+
 		Vehiculo vehiculo = vehiculoDataBuilder.build();
 
 		ServicioCrearVehiculo crearServicio = new ServicioCrearVehiculo(vehiculoRepositorio, fechaUtil);

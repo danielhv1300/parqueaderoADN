@@ -31,7 +31,7 @@ public class VehiculoTest {
 		VehiculoTestDataBuilder vehiculoDataBuilder = new VehiculoTestDataBuilder();
 		Vehiculo vehiculo = vehiculoDataBuilder.build();
 		// Act-Assert
-		when(vehiculoRepositorio.crearVehiculo(vehiculo)).thenReturn(vehiculo);
+		when(vehiculoRepositorio.crear(vehiculo)).thenReturn(vehiculo);
 		when(fechaUtil.getFechaActual()).thenCallRealMethod();
 		Vehiculo vehiculoRta= this.crearServicio.crear(vehiculo);
 		assertEquals(vehiculoRta, vehiculo);

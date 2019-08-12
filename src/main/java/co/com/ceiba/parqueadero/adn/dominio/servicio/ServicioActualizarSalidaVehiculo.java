@@ -30,7 +30,7 @@ public class ServicioActualizarSalidaVehiculo {
 			calcularPrecioCarro(vehiculo);
 		}
 
-		this.vehiculoRepositorio.crearVehiculo(vehiculo);
+		this.vehiculoRepositorio.crear(vehiculo);
 		return vehiculo.getValor();
 	}
 

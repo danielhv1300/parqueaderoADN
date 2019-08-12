@@ -8,7 +8,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.TableGenerator;
 
 @Entity(name = "VehiculoEntidad")
 public class VehiculoEntidad {
@@ -23,12 +22,12 @@ public class VehiculoEntidad {
 		this.cilindraje = cilindraje;
 		this.fechaIngreso = fechaIngreso;
 		this.fechaSalida = fechaSalida;
-		this.valorTotal = valorTotal;
+		this.valor = valorTotal;
 	}
 	
 	@Id
-	@TableGenerator(name = "codigoVehiculo", initialValue = 1)
-	@GeneratedValue(strategy = GenerationType.AUTO, generator  = "codigoVehiculo")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id",unique = true, nullable = false)
 	private Long id;
 
 	@Column(nullable = false)
@@ -37,17 +36,17 @@ public class VehiculoEntidad {
 	@Column(nullable = false)
 	private String tipoVehiculo;
 
-	@Column
+	@Column(nullable = true)
 	private int cilindraje;
 	
 	@Column(nullable = false)
 	private Calendar fechaIngreso;
 	
-	@Column
+	@Column(nullable = true)
 	private Calendar fechaSalida;
 	
-	@Column
-	private double valorTotal;
+	@Column(nullable = true)
+	private double valor;
 
 	public Long getId() {
 		return id;
@@ -97,11 +96,17 @@ public class VehiculoEntidad {
 		this.fechaSalida = fechaSalida;
 	}
 
-	public double getValorTotal() {
-		return valorTotal;
+
+	public double getValor() {
+		return valor;
 	}
 
-	public void setValorTotal(double valorTotal) {
-		this.valorTotal = valorTotal;
+
+	public void setValor(double valor) {
+		this.valor = valor;
 	}
+	
+	
+	
+	
 }

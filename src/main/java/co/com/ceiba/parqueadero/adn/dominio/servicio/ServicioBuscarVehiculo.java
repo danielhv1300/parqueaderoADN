@@ -9,8 +9,8 @@ public class ServicioBuscarVehiculo {
 
 private VehiculoRepositorio vehiculoRepositorio;
 	
-	public ServicioBuscarVehiculo(VehiculoRepositorio parqueaderoRepositorio){
-        this.vehiculoRepositorio = parqueaderoRepositorio;
+	public ServicioBuscarVehiculo(VehiculoRepositorio vehiculoRepositorio){
+        this.vehiculoRepositorio = vehiculoRepositorio;
     }
 	
 	public List<Vehiculo> buscar(){

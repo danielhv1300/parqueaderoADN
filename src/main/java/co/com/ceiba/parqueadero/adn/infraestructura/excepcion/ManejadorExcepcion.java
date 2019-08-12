@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import co.com.ceiba.parqueadero.adn.dominio.excepcion.ExcepcionCampoObligatorio;
 import co.com.ceiba.parqueadero.adn.dominio.excepcion.ExcepcionImposibleActualizar;
@@ -18,7 +19,7 @@ import co.com.ceiba.parqueadero.adn.dominio.excepcion.ExcepcionSinCupoDisponible
 import co.com.ceiba.parqueadero.adn.dominio.excepcion.ExcepcionTipoVehiculo;
 
 @ControllerAdvice
-public class ManejadorExcepcion {
+public class ManejadorExcepcion  extends ResponseEntityExceptionHandler {
 
     private static final String MENSAJE_ERROR_CONTACTE_ADMINISTRADOR = "Ha ocurrido un error, contacte el administrador";
     private static final ConcurrentHashMap<String, Integer> ESTADO_PETICION = new ConcurrentHashMap<>();
@@ -33,7 +34,7 @@ public class ManejadorExcepcion {
         ESTADO_PETICION.put(ExcepcionImposibleActualizar.class.getSimpleName(), HttpStatus.BAD_REQUEST.value());
     }
 
-    @ExceptionHandler(Exception.class)
+    
     public final ResponseEntity<ExcepcionInfraestructura> handleAllExceptions(ExcepcionInfraestructura excepcion) {
         ResponseEntity<ExcepcionInfraestructura> response;
 

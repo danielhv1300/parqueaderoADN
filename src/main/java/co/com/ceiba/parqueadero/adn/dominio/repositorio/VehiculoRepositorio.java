@@ -6,27 +6,37 @@ import co.com.ceiba.parqueadero.adn.dominio.modelo.Vehiculo;
 
 public interface VehiculoRepositorio {
 
-//Registra el vehiculo en el parqueadero
 	/**
-	 * dfdfdfdfd
+	 * Registra el vehiculo en el parqueadero
+	 * 
 	 * @param vehiculo
-	 * @return
+	 * @return mapeador.convertirADominio(vehiculoEntidad)
 	 */
-	public Vehiculo crearVehiculo(Vehiculo vehiculo);
+	public Vehiculo crear(Vehiculo vehiculo);
 
-//Cupos disponibles por tipo de vehiculo
+	/**
+	 * Cupos disponibles por tipo de vehiculo
+	 * 
+	 * @param tipoVehiculo
+	 * @return repositorioVehiculoJPA.cuposPorTipoVehiculo(tipoVehiculo)
+	 */
 
 	public int cuposPorTipoVehiculo(String tipoVehiculo);
 
-//Muestra si el vehiculo ya ha sido registrado 
+	public boolean existe(String placa);
 
-	public boolean existeVehiculo(String placa);
-
-//Lista los vehiculos registrados
+	/**
+	 * Lista los vehiculos registrados
+	 */
 
 	public List<Vehiculo> buscarRegistroVehiculos();
 
-//Retorna vehiculo que aun se encuentra en parqueadero por placa
+	/**
+	 * Retorna vehiculo que aun se encuentra en parqueadero por placa
+	 * 
+	 * @param placa
+	 * @return mapeador.convertirADominio(vehiculoEntidad)
+	 */
 
 	public Vehiculo buscarPorPlaca(String placa);
 }

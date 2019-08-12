@@ -9,11 +9,11 @@ public class ListaVehiculoHandler {
 
 	private final ServicioBuscarVehiculo buscarServicio;
 
-    public ListaVehiculoHandler(ServicioBuscarVehiculo servicio){
-        this.buscarServicio = servicio;
-    }
+	public ListaVehiculoHandler(ServicioBuscarVehiculo servicio) {
+		this.buscarServicio = servicio;
+	}
 
-    public List<Vehiculo> listaVehiculos(){
-        return this.buscarServicio.buscar();
-    }
+	public List<Vehiculo> listaVehiculos() {
+		return this.buscarServicio.buscar();
+	}
 }
