@@ -5,15 +5,14 @@ import static org.junit.Assert.fail;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-import java.util.Calendar;
+
 
 import org.junit.Before;
 import org.junit.Test;
 
 import co.com.ceiba.parqueadero.adn.dominio.constantes.Constantes;
 import co.com.ceiba.parqueadero.adn.dominio.excepcion.ExcepcionNoExisteRegistroVehiculo;
-import co.com.ceiba.parqueadero.adn.dominio.excepcion.ExcepcionRestriccionPlaca;
-import co.com.ceiba.parqueadero.adn.dominio.excepcion.ExcepcionSinCupoDisponible;
+
 import co.com.ceiba.parqueadero.adn.dominio.modelo.Fecha;
 import co.com.ceiba.parqueadero.adn.dominio.modelo.Vehiculo;
 import co.com.ceiba.parqueadero.adn.dominio.repositorio.VehiculoRepositorio;
@@ -95,77 +94,6 @@ public class ServicioCrearTest {
 
 		// Assert
 		assertEquals(vehiculoRta.getId(), vehiculo.getId());
-	}
-
-	@Test
-	public void validarCupoMoto() {
-		// Arrange
-		VehiculoTestDataBuilder vehiculoDataBuilder = new VehiculoTestDataBuilder().conPlaca(Constantes.PLACA_MOTO)
-				.conTipoVehiculo(Constantes.TIPO_VEHICULO_MOTO).conCilindraje(600);
-
-		Vehiculo vehiculo = vehiculoDataBuilder.build();
-
-		ServicioCrearVehiculo crearServicio = new ServicioCrearVehiculo(vehiculoRepositorio, fechaUtil);
-
-		when(vehiculoRepositorio.cuposPorTipoVehiculo(Constantes.TIPO_VEHICULO_MOTO))
-				.thenReturn(Constantes.CAPACIDAD_MAXIMA_MOTOS);
-
-		// Act
-		try {
-			crearServicio.crear(vehiculo);
-			fail();
-		} catch (ExcepcionSinCupoDisponible e) {
-			// Assert
-			assertEquals(Vehiculo.MENSAJE_SIN_CUPOS_DISPONIBLES, e.getMessage());
-		}
-	}
-
-	@Test
-	public void validarCupoCarro() {
-		// Arrange
-		VehiculoTestDataBuilder vehiculoDataBuilder = new VehiculoTestDataBuilder().conPlaca(Constantes.PLACA_CARRO)
-				.conTipoVehiculo(Constantes.TIPO_VEHICULO_CARRO);
-
-		Vehiculo vehiculo = vehiculoDataBuilder.build();
-
-		ServicioCrearVehiculo crearServicio = new ServicioCrearVehiculo(vehiculoRepositorio, fechaUtil);
-
-		when(vehiculoRepositorio.cuposPorTipoVehiculo(Constantes.TIPO_VEHICULO_CARRO))
-				.thenReturn(Constantes.CAPACIDAD_MAXIMA_CARROS);
-
-		// Act
-		try {
-			crearServicio.crear(vehiculo);
-			fail();
-		} catch (ExcepcionSinCupoDisponible e) {
-			// Assert
-			assertEquals(Vehiculo.MENSAJE_SIN_CUPOS_DISPONIBLES, e.getMessage());
-		}
-	}
-
-	@Test
-	public void cuandoVehiculoConPlacaQueIniciaConLetraAIntentaIngresarAlParqueaderoEntoncesSistemaRetornaExcepcionNoPuedeEntrarHoyNoEsLunesODomingo() {
-
-		// Arrange
-		Calendar fechaIngreso = Calendar.getInstance();
-		fechaIngreso.set(Calendar.DAY_OF_WEEK, Calendar.TUESDAY);
-
-		VehiculoTestDataBuilder vehiculoDataBuilder = new VehiculoTestDataBuilder()
-				.conPlaca(Constantes.PLACA_CARRO_CON_A).conTipoVehiculo(Constantes.TIPO_VEHICULO_CARRO)
-				.conFechaIngreso(fechaIngreso);
-
-		Vehiculo vehiculo = vehiculoDataBuilder.build();
-
-		ServicioCrearVehiculo crearServicio = new ServicioCrearVehiculo(vehiculoRepositorio, fechaUtil);
-		when(fechaUtil.getFechaActual()).thenCallRealMethod();
-		// Act
-		try {
-			crearServicio.crear(vehiculo);
-			fail();
-		} catch (ExcepcionRestriccionPlaca e) {
-			// Assert
-			assertEquals(Vehiculo.MENSAJE_RESTRICCION_POR_PLACA, e.getMessage());
-		}
 	}
 
 }

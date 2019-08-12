@@ -67,8 +67,7 @@ public class ServicioActualizarVehiculoTest {
 		Calendar fecha = Calendar.getInstance();
 
 		fecha.set(Calendar.HOUR, fecha.get(Calendar.HOUR));
-
-		System.out.println(fecha.getTime());
+		
 		VehiculoTestDataBuilder vehiculoDataBuilder = new VehiculoTestDataBuilder()
 				.conTipoVehiculo(Constantes.TIPO_VEHICULO_MOTO).conFechaIngreso(fecha).conCilindraje(600);
 
@@ -145,6 +144,8 @@ public class ServicioActualizarVehiculoTest {
 				+ vehiculo.getFechaSalida().getTime(), valorDiaCarro, vehiculo.getValor(), 0);
 
 	}
+	
+	
 
 }
 
