@@ -1,7 +1,6 @@
 package co.com.ceiba.parqueadero.adn.infraestructura.adaptador;
 
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Repository;
@@ -16,17 +15,16 @@ import co.com.ceiba.parqueadero.adn.infraestructura.mapeador.VehiculoMapeador;
 public class RepositorioVehiculoH2Adaptador implements VehiculoRepositorio {
 
 	private RepositorioVehiculoJPA repositorioVehiculoJPA;
-	private VehiculoMapeador mapeador;
+	
 
 	public RepositorioVehiculoH2Adaptador(RepositorioVehiculoJPA vehiculoRepositorioJPA, VehiculoMapeador mapeador) {
 		this.repositorioVehiculoJPA = vehiculoRepositorioJPA;
-		this.mapeador = mapeador;
 	}
 
 	@Override
 	public Vehiculo crear(Vehiculo vehiculo) {
-		VehiculoEntidad vehiculoEntidad = repositorioVehiculoJPA.save(mapeador.convertirAEntidad(vehiculo));
-		return mapeador.convertirADominio(vehiculoEntidad);
+		VehiculoEntidad vehiculoEntidad = repositorioVehiculoJPA.save(VehiculoMapeador.convertirAEntidad(vehiculo));
+		return VehiculoMapeador.convertirADominio(vehiculoEntidad);
 	}
 
 	@Override
@@ -48,7 +46,7 @@ public class RepositorioVehiculoH2Adaptador implements VehiculoRepositorio {
 	@Override
 	public Vehiculo buscarPorPlaca(String placa) {
 		VehiculoEntidad vehiculoEntidad = repositorioVehiculoJPA.buscarPorPlaca(placa);
-		return mapeador.convertirADominio(vehiculoEntidad);
+		return VehiculoMapeador.convertirADominio(vehiculoEntidad);
 	}
 
 }

@@ -22,8 +22,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import co.com.ceiba.parqueadero.adn.ParqueaderoAdnApplication;
 import co.com.ceiba.parqueadero.adn.aplicacion.comando.VehiculoComando;
-import co.com.ceiba.parqueadero.adn.infraestructura.controlador.VehiculoControlador;
-import co.com.ceiba.parqueadero.adn.infraestructura.excepcion.ManejadorExcepcion;
+
 import co.com.ceiba.parqueadero.adn.testdatabuilder.VehiculoComandoTestDataBuilder;
 
 
@@ -66,15 +65,6 @@ public class ServicioCrearIT {
 
 	}
 
-/*	@Test
-	public void putSalidaVehiculoTest() throws Exception {
-		// Arrange
-		String placa = "BDD32Q";
-		// Act y Assert
-		mockMvc.perform(put("/vehiculo/" + placa).contentType(MediaType.APPLICATION_JSON))
-		.andExpect(status().isOk());
-	}
-*/
 	private String jsonToString(VehiculoComando json) throws JsonProcessingException {
 		return new ObjectMapper().writeValueAsString(json);
 	}
