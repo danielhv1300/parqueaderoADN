@@ -1,7 +1,6 @@
 package co.com.ceiba.parqueadero.adn.dominio.unitarias.servicio;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -11,12 +10,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 import co.com.ceiba.parqueadero.adn.dominio.constantes.Constantes;
-import co.com.ceiba.parqueadero.adn.dominio.excepcion.ExcepcionNoExisteRegistroVehiculo;
-
 import co.com.ceiba.parqueadero.adn.dominio.modelo.Fecha;
 import co.com.ceiba.parqueadero.adn.dominio.modelo.Vehiculo;
 import co.com.ceiba.parqueadero.adn.dominio.repositorio.VehiculoRepositorio;
-import co.com.ceiba.parqueadero.adn.dominio.servicio.ServicioActualizarSalidaVehiculo;
 import co.com.ceiba.parqueadero.adn.dominio.servicio.ServicioCrearVehiculo;
 import co.com.ceiba.parqueadero.adn.testdatabuilder.VehiculoTestDataBuilder;
 

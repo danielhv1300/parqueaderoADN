@@ -17,36 +17,34 @@ import co.com.ceiba.parqueadero.adn.aplicacion.comando.manejador.ManejadorSalida
 import co.com.ceiba.parqueadero.adn.aplicacion.consulta.ListaVehiculoHandler;
 import co.com.ceiba.parqueadero.adn.dominio.modelo.Vehiculo;
 
-
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RestController
-@RequestMapping("/vehiculo") 
+@RequestMapping("/vehiculo")
 public class VehiculoControlador {
 
 	private ManejadorIngresoVehiculo entradaVehiculoHandler;
 	private ManejadorSalidaVehiculo salidaVehiculoHandler;
 	private ListaVehiculoHandler listaVehiculoHandler;
-	
-    public VehiculoControlador(ManejadorIngresoVehiculo entradaVehiculoHandler, 
-    		ManejadorSalidaVehiculo salidaVehiculoHandler, ListaVehiculoHandler listaVehiculoHandler){
-        this.entradaVehiculoHandler = entradaVehiculoHandler;
-        this.salidaVehiculoHandler = salidaVehiculoHandler;
-        this.listaVehiculoHandler = listaVehiculoHandler;
-    }
-	
 
-    @PostMapping
-    public void getEntrada(@RequestBody VehiculoComando vehiculoComando) {
-        this.entradaVehiculoHandler.crear(vehiculoComando);
-    }
-    
-    @GetMapping
-    public List<Vehiculo> listaVehiculos() {
-        return this.listaVehiculoHandler.listaVehiculos();
-    }
+	public VehiculoControlador(ManejadorIngresoVehiculo entradaVehiculoHandler,
+			ManejadorSalidaVehiculo salidaVehiculoHandler, ListaVehiculoHandler listaVehiculoHandler) {
+		this.entradaVehiculoHandler = entradaVehiculoHandler;
+		this.salidaVehiculoHandler = salidaVehiculoHandler;
+		this.listaVehiculoHandler = listaVehiculoHandler;
+	}
 
-    @PutMapping("/{placa}")
-    public double getSalida(@PathVariable("placa") String placa) {
-        return this.salidaVehiculoHandler.actualizar(placa);
-    }
+	@PostMapping
+	public void getEntrada(@RequestBody VehiculoComando vehiculoComando) {
+		this.entradaVehiculoHandler.crear(vehiculoComando);
+	}
+
+	@GetMapping
+	public List<Vehiculo> listaVehiculos() {
+		return this.listaVehiculoHandler.listaVehiculos();
+	}
+
+	@PutMapping("/{placa}")
+	public double getSalida(@PathVariable("placa") String placa) {
+		return this.salidaVehiculoHandler.actualizar(placa);
+	}
 }

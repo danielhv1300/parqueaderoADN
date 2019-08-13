@@ -17,7 +17,7 @@ public class ManejadorIngresoVehiculo {
 	public void crear(VehiculoComando vehiculoComando) {
 		this.crearVehiculoServicio.crear(new Vehiculo(vehiculoComando.getId(), vehiculoComando.getPlaca(),
 				vehiculoComando.getTipoVehiculo(), vehiculoComando.getCilindraje(), 
-				vehiculoComando.getTotal()));
+				vehiculoComando.getValor()));
 	}
 
 }

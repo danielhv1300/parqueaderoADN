@@ -1,6 +1,5 @@
 package co.com.ceiba.parqueadero.adn.dominio.servicio;
 
-
 import java.util.Date;
 
 import co.com.ceiba.parqueadero.adn.dominio.constantes.Constantes;
@@ -62,7 +61,7 @@ public class ServicioActualizarSalidaVehiculo {
 			}
 		} else if (totalHoraNuevoDia == 0 || (totalHoraNuevoDia >= Constantes.INICIO_EN_HORAS_PARA_COBRO_POR_DIA
 				&& totalHoraNuevoDia < Constantes.FIN_EN_HORAS_PARA_COBRO_POR_DIA)) {
-			valor = (Constantes.VALOR_DIA_MOTO * (totalDia == 0 ? 1:totalDia));
+			valor = (Constantes.VALOR_DIA_MOTO * (totalDia == 0 ? 1 : totalDia));
 		} else {
 			valor = ((Constantes.VALOR_DIA_MOTO * totalDia) + (totalHoraNuevoDia * Constantes.VALOR_HORA_MOTO));
 		}
@@ -94,13 +93,12 @@ public class ServicioActualizarSalidaVehiculo {
 			}
 		} else if (totalHoraNuevoDia == 0 || (totalHoraNuevoDia >= Constantes.INICIO_EN_HORAS_PARA_COBRO_POR_DIA
 				&& totalHoraNuevoDia < Constantes.FIN_EN_HORAS_PARA_COBRO_POR_DIA)) {
-			valor = (Constantes.VALOR_DIA_CARRO * (totalDia == 0 ? 1:totalDia));
+			valor = (Constantes.VALOR_DIA_CARRO * (totalDia == 0 ? 1 : totalDia));
 		} else {
 			valor = ((Constantes.VALOR_DIA_CARRO * totalDia) + (totalHoraNuevoDia * Constantes.VALOR_HORA_CARRO));
 		}
 
 		vehiculo.setValor(valor);
 	}
-	
-	
+
 }

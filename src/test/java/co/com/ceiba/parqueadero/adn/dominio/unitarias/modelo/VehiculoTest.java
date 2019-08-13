@@ -19,6 +19,8 @@ import co.com.ceiba.parqueadero.adn.dominio.modelo.Fecha;
 import co.com.ceiba.parqueadero.adn.dominio.modelo.Vehiculo;
 import co.com.ceiba.parqueadero.adn.dominio.repositorio.VehiculoRepositorio;
 import co.com.ceiba.parqueadero.adn.dominio.servicio.ServicioCrearVehiculo;
+import co.com.ceiba.parqueadero.adn.infraestructura.mapeador.VehiculoMapeador;
+import co.com.ceiba.parqueadero.adn.infraestructura.unitarias.PeticionesTest;
 import co.com.ceiba.parqueadero.adn.testdatabuilder.VehiculoTestDataBuilder;
 
 public class VehiculoTest {
@@ -31,7 +33,7 @@ public class VehiculoTest {
 		this.vehiculoRepositorio = mock(VehiculoRepositorio.class);
 		this.fechaUtil = mock(Fecha.class);
 		this.crearServicio = new ServicioCrearVehiculo(vehiculoRepositorio, fechaUtil);
-		
+
 	}
 
 	@Test
@@ -42,9 +44,10 @@ public class VehiculoTest {
 		// Act-Assert
 		when(vehiculoRepositorio.crear(vehiculo)).thenReturn(vehiculo);
 		when(fechaUtil.getFechaActual()).thenCallRealMethod();
-		Vehiculo vehiculoRta= this.crearServicio.crear(vehiculo);
+		Vehiculo vehiculoRta = this.crearServicio.crear(vehiculo);
 		assertEquals(vehiculoRta, vehiculo);
 	}
+
 	@Test
 	public void cuandoVehiculoConPlacaQueIniciaConLetraAIntentaIngresarAlParqueaderoEntoncesSistemaRetornaExcepcionNoPuedeEntrarHoyNoEsLunesODomingo() {
 
@@ -68,6 +71,7 @@ public class VehiculoTest {
 			assertEquals(Vehiculo.MENSAJE_RESTRICCION_POR_PLACA, e.getMessage());
 		}
 	}
+
 	@Test
 	public void validarCupoCarro() {
 		// Arrange
@@ -90,40 +94,38 @@ public class VehiculoTest {
 			assertEquals(Vehiculo.MENSAJE_SIN_CUPOS_DISPONIBLES, e.getMessage());
 		}
 	}
-	
-	@Test(expected = ExcepcionCampoObligatorio.class)
-    public void validarCampoPlacaObligatoria() {
-        //Arrange - Act - Assert
-        VehiculoTestDataBuilder vehiculoTestDataBuilder = new VehiculoTestDataBuilder();
 
-        vehiculoTestDataBuilder.conPlaca(null);
-        
-        vehiculoTestDataBuilder.build();
-    }
-	
-	
-	@Test(expected = ExcepcionCampoObligatorio.class)
-    public void validarCampoTipoVehiculoObligatorio() {
-        //Arrange - Act - Assert
-        VehiculoTestDataBuilder vehiculoTestDataBuilder = new VehiculoTestDataBuilder();
+	@Test
+	public void validarCampoPlacaObligatoria() {
+		// Arrange - Act - Assert
+		VehiculoTestDataBuilder vehiculoTestDataBuilder = new VehiculoTestDataBuilder();
 
-        vehiculoTestDataBuilder.conTipoVehiculo(null);
-    
-        vehiculoTestDataBuilder.build();
-    }
-	
-	@Test(expected = ExcepcionCampoObligatorio.class)
-    public void validarCampoCilindrajeObligatorio() {
-        //Arrange - Act - Assert
-        VehiculoTestDataBuilder vehiculoTestDataBuilder = new VehiculoTestDataBuilder();
+		vehiculoTestDataBuilder.conPlaca(null);
 
-        vehiculoTestDataBuilder.conTipoVehiculo(null);
-        
-       vehiculoTestDataBuilder.build();
-    }
-	
-	
-	
+		PeticionesTest.assertThrows(() -> vehiculoTestDataBuilder.build(), ExcepcionCampoObligatorio.class,
+				Vehiculo.MENSAJE_CAMPO_PLACA_OBLIGATORIO);
+	}
+
+	@Test(expected = ExcepcionCampoObligatorio.class)
+	public void validarCampoTipoVehiculoObligatorio() {
+		// Arrange - Act - Assert
+		VehiculoTestDataBuilder vehiculoTestDataBuilder = new VehiculoTestDataBuilder();
+
+		vehiculoTestDataBuilder.conTipoVehiculo(null);
+
+		vehiculoTestDataBuilder.build();
+	}
+
+	@Test(expected = ExcepcionCampoObligatorio.class)
+	public void validarCampoCilindrajeObligatorio() {
+		// Arrange - Act - Assert
+		VehiculoTestDataBuilder vehiculoTestDataBuilder = new VehiculoTestDataBuilder();
+
+		vehiculoTestDataBuilder.conTipoVehiculo(null);
+
+		vehiculoTestDataBuilder.build();
+	}
+
 	@Test
 	public void validarCupoMoto() {
 		// Arrange
@@ -146,18 +148,16 @@ public class VehiculoTest {
 			assertEquals(Vehiculo.MENSAJE_SIN_CUPOS_DISPONIBLES, e.getMessage());
 		}
 	}
-	
-    @Test(expected= ExcepcionTipoVehiculo.class)
-    public void validarTipoVehiculoIncorrecto() {
-        //Arrange
-    	VehiculoTestDataBuilder vehiculoTestDataBuilder = new VehiculoTestDataBuilder();
-    	String tipoVehiculo = "carr";
-        vehiculoTestDataBuilder.conTipoVehiculo(tipoVehiculo);
 
-        //
-        vehiculoTestDataBuilder.build();
-    }
+	@Test(expected = ExcepcionTipoVehiculo.class)
+	public void validarTipoVehiculoIncorrecto() {
+		// Arrange
+		VehiculoTestDataBuilder vehiculoTestDataBuilder = new VehiculoTestDataBuilder();
+		String tipoVehiculo = "carr";
+		vehiculoTestDataBuilder.conTipoVehiculo(tipoVehiculo);
+
+		//
+		vehiculoTestDataBuilder.build();
+	}
 
 }
-
-

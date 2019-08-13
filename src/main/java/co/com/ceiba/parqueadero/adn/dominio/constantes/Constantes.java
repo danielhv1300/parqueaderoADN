@@ -1,19 +1,18 @@
 package co.com.ceiba.parqueadero.adn.dominio.constantes;
 
 public final class Constantes {
-	
+
 	private Constantes() {
-		
+
 	}
-	
-	public static final String TIPO_VEHICULO_MOTO  = "MOTO";
-	public static final String TIPO_VEHICULO_CARRO  = "CARRO";
-	public static final String PLACA_MOTO  = "FLM54";
-	public static final String PLACA_CARRO  = "EOW328";
-	public static final String PLACA_CARRO_CON_A  = "ASD123";
-	public static final String VACIO  = "";
-	
-	
+
+	public static final String TIPO_VEHICULO_MOTO = "MOTO";
+	public static final String TIPO_VEHICULO_CARRO = "CARRO";
+	public static final String PLACA_MOTO = "FLM54";
+	public static final String PLACA_CARRO = "EOW328";
+	public static final String PLACA_CARRO_CON_A = "ASD123";
+	public static final String VACIO = "";
+
 	public static final int CAPACIDAD_MAXIMA_MOTOS = 10;
 	public static final int CAPACIDAD_MAXIMA_CARROS = 20;
 	public static final int INICIO_EN_HORAS_PARA_COBRO_POR_DIA = 9;
@@ -26,11 +25,6 @@ public final class Constantes {
 	public static final int ALTO_CILINDRAJE_MOTO = 500;
 	public static final int HORA_EN_MINUTOS = 60;
 	public static final int MILISEGUNDOS_A_MINUTOS = 60000;
-	public static final int CERO = 0;	
-	
-	
+	public static final int CERO = 0;
 
-	
-
-	
 }
