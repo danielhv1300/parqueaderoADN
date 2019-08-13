@@ -5,7 +5,6 @@ import org.springframework.context.annotation.Configuration;
 
 import co.com.ceiba.parqueadero.adn.aplicacion.comando.manejador.ManejadorIngresoVehiculo;
 import co.com.ceiba.parqueadero.adn.aplicacion.comando.manejador.ManejadorSalidaVehiculo;
-import co.com.ceiba.parqueadero.adn.aplicacion.consulta.ListaVehiculoHandler;
 import co.com.ceiba.parqueadero.adn.dominio.repositorio.VehiculoRepositorio;
 import co.com.ceiba.parqueadero.adn.dominio.servicio.ServicioActualizarSalidaVehiculo;
 import co.com.ceiba.parqueadero.adn.dominio.servicio.ServicioBuscarVehiculo;
@@ -27,11 +26,6 @@ public class ConfiguracionBean {
         return new ServicioCrearVehiculo(vehiculoRepositorio, fechaUtil);
     }
 
-    @Bean
-    public ListaVehiculoHandler listaVehiculoHandler(ServicioBuscarVehiculo buscarListaServicio) {
-        return new ListaVehiculoHandler(buscarListaServicio);
-    }
-    
     @Bean
     public  ServicioBuscarVehiculo listaVehiculoServicio(VehiculoRepositorio vehiculoRepositorio){
         return new ServicioBuscarVehiculo(vehiculoRepositorio);

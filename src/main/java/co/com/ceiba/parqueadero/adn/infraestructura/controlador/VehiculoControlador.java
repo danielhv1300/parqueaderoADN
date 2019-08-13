@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 import co.com.ceiba.parqueadero.adn.aplicacion.comando.VehiculoComando;
 import co.com.ceiba.parqueadero.adn.aplicacion.comando.manejador.ManejadorIngresoVehiculo;
 import co.com.ceiba.parqueadero.adn.aplicacion.comando.manejador.ManejadorSalidaVehiculo;
-import co.com.ceiba.parqueadero.adn.aplicacion.consulta.ListaVehiculoHandler;
 import co.com.ceiba.parqueadero.adn.dominio.modelo.Vehiculo;
+import co.com.ceiba.parqueadero.adn.dominio.servicio.ServicioBuscarVehiculo;
 
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RestController
@@ -24,13 +24,13 @@ public class VehiculoControlador {
 
 	private ManejadorIngresoVehiculo entradaVehiculoHandler;
 	private ManejadorSalidaVehiculo salidaVehiculoHandler;
-	private ListaVehiculoHandler listaVehiculoHandler;
+	private ServicioBuscarVehiculo buscarServicio;
 
 	public VehiculoControlador(ManejadorIngresoVehiculo entradaVehiculoHandler,
-			ManejadorSalidaVehiculo salidaVehiculoHandler, ListaVehiculoHandler listaVehiculoHandler) {
+			ManejadorSalidaVehiculo salidaVehiculoHandler, ServicioBuscarVehiculo buscarServicio) {
 		this.entradaVehiculoHandler = entradaVehiculoHandler;
 		this.salidaVehiculoHandler = salidaVehiculoHandler;
-		this.listaVehiculoHandler = listaVehiculoHandler;
+		this.buscarServicio = buscarServicio;
 	}
 
 	@PostMapping
@@ -40,7 +40,7 @@ public class VehiculoControlador {
 
 	@GetMapping
 	public List<Vehiculo> listaVehiculos() {
-		return this.listaVehiculoHandler.listaVehiculos();
+		return this.buscarServicio.buscar();
 	}
 
 	@PutMapping("/{placa}")

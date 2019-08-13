@@ -1,9 +1,11 @@
 package co.com.ceiba.parqueadero.adn.dominio.unitarias.servicio;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Before;
@@ -39,4 +41,22 @@ public class ServicioBuscarVehiculoTest {
         List<Vehiculo> listaVehiculos = listarServicio.buscar();
         assertNotNull(listaVehiculos);
 	}
+	
+	@Test
+	public void listarParqueaderoVacio() {
+		
+		List<Vehiculo> vacio = new ArrayList<>();
+		//Arrange
+        VehiculoTestDataBuilder vehiculoDataBuilder = new VehiculoTestDataBuilder()
+                .conTipoVehiculo(Constantes.TIPO_VEHICULO_CARRO);
+        
+        Vehiculo vehiculo = vehiculoDataBuilder.build();
+
+        ServicioBuscarVehiculo listarServicio = new ServicioBuscarVehiculo(vehiculoRepositorio);
+        when(vehiculoRepositorio.crear(vehiculo)).thenReturn(null);
+        
+        List<Vehiculo> listaParqeuadero = listarServicio.buscar();
+        assertEquals(vacio,listaParqeuadero);
+	}
+
 }
