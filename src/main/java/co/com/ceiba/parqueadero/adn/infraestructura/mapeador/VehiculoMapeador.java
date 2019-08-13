@@ -10,6 +10,10 @@ import co.com.ceiba.parqueadero.adn.infraestructura.adaptador.entidad.VehiculoEn
 
 @Component
 public final class VehiculoMapeador {
+	
+	private VehiculoMapeador() {
+		super();
+	}
 
 	public static Vehiculo convertirADominio(VehiculoEntidad vehiculoEntidad) {
 
@@ -31,8 +35,8 @@ public final class VehiculoMapeador {
 		return vehiculoEntidad;
 	}
 
-	public List<Vehiculo> listaConvertirADominio(List<VehiculoEntidad> listaVehiculoEntidad) {
-		final List<Vehiculo> listVehiculo = new ArrayList<>();
+	public static List<Vehiculo> listaConvertirADominio(List<VehiculoEntidad> listaVehiculoEntidad) {
+		 List<Vehiculo> listVehiculo = new ArrayList<>();
 
 		listaVehiculoEntidad.forEach(vehiculoEntidad -> listVehiculo.add(new Vehiculo(vehiculoEntidad.getId(),
 				vehiculoEntidad.getPlaca(), vehiculoEntidad.getTipoVehiculo(), vehiculoEntidad.getCilindraje(),
