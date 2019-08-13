@@ -19,8 +19,6 @@ import co.com.ceiba.parqueadero.adn.dominio.modelo.Fecha;
 import co.com.ceiba.parqueadero.adn.dominio.modelo.Vehiculo;
 import co.com.ceiba.parqueadero.adn.dominio.repositorio.VehiculoRepositorio;
 import co.com.ceiba.parqueadero.adn.dominio.servicio.ServicioCrearVehiculo;
-import co.com.ceiba.parqueadero.adn.infraestructura.mapeador.VehiculoMapeador;
-import co.com.ceiba.parqueadero.adn.infraestructura.unitarias.PeticionesTest;
 import co.com.ceiba.parqueadero.adn.testdatabuilder.VehiculoTestDataBuilder;
 
 public class VehiculoTest {
@@ -95,15 +93,15 @@ public class VehiculoTest {
 		}
 	}
 
-	@Test
+	@Test(expected = ExcepcionCampoObligatorio.class)
 	public void validarCampoPlacaObligatoria() {
 		// Arrange - Act - Assert
 		VehiculoTestDataBuilder vehiculoTestDataBuilder = new VehiculoTestDataBuilder();
 
 		vehiculoTestDataBuilder.conPlaca(null);
 
-		PeticionesTest.assertThrows(() -> vehiculoTestDataBuilder.build(), ExcepcionCampoObligatorio.class,
-				Vehiculo.MENSAJE_CAMPO_PLACA_OBLIGATORIO);
+		vehiculoTestDataBuilder.build();
+			
 	}
 
 	@Test(expected = ExcepcionCampoObligatorio.class)

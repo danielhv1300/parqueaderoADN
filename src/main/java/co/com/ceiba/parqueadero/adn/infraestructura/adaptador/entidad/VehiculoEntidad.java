@@ -56,24 +56,56 @@ public class VehiculoEntidad {
 		return placa;
 	}
 
+	public void setPlaca(String placa) {
+		this.placa = placa;
+	}
+
 	public String getTipoVehiculo() {
 		return tipoVehiculo;
+	}
+
+	public void setTipoVehiculo(String tipoVehiculo) {
+		this.tipoVehiculo = tipoVehiculo;
 	}
 
 	public int getCilindraje() {
 		return cilindraje;
 	}
 
+	public void setCilindraje(int cilindraje) {
+		this.cilindraje = cilindraje;
+	}
+
 	public Calendar getFechaIngreso() {
 		return fechaIngreso;
+	}
+
+	public void setFechaIngreso(Calendar fechaIngreso) {
+		this.fechaIngreso = fechaIngreso;
 	}
 
 	public Calendar getFechaSalida() {
 		return fechaSalida;
 	}
 
+	public void setFechaSalida(Calendar fechaSalida) {
+		this.fechaSalida = fechaSalida;
+	}
+
 	public double getValor() {
 		return valor;
 	}
+
+	public void setValor(double valor) {
+		this.valor = valor;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+	
+	
+
+
 
 }

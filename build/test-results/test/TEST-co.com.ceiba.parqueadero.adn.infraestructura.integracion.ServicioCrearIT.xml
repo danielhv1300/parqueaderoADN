@@ -1,29 +1,127 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="co.com.ceiba.parqueadero.adn.infraestructura.integracion.ServicioCrearIT" tests="3" skipped="0" failures="0" errors="0" timestamp="2019-08-13T12:07:33" hostname="DANIEL-HERNANDEZ" time="0.653">
+<testsuite name="co.com.ceiba.parqueadero.adn.infraestructura.integracion.ServicioCrearIT" tests="3" skipped="0" failures="1" errors="0" timestamp="2019-08-13T18:51:28" hostname="DANIEL-HERNANDEZ" time="0.746">
   <properties/>
-  <testcase name="postIngresarVehiculoTest" classname="co.com.ceiba.parqueadero.adn.infraestructura.integracion.ServicioCrearIT" time="0.555"/>
-  <testcase name="getListaTest" classname="co.com.ceiba.parqueadero.adn.infraestructura.integracion.ServicioCrearIT" time="0.058"/>
-  <testcase name="putSalidaVehiculoTest" classname="co.com.ceiba.parqueadero.adn.infraestructura.integracion.ServicioCrearIT" time="0.038"/>
-  <system-out><![CDATA[07:07:23.273 [Test worker] DEBUG org.springframework.test.context.junit4.SpringJUnit4ClassRunner - SpringJUnit4ClassRunner constructor called with [class co.com.ceiba.parqueadero.adn.infraestructura.integracion.ServicioCrearIT]
-07:07:23.295 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
-07:07:23.319 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
-07:07:23.379 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [co.com.ceiba.parqueadero.adn.infraestructura.integracion.ServicioCrearIT] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
-07:07:23.404 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [co.com.ceiba.parqueadero.adn.infraestructura.integracion.ServicioCrearIT], using SpringBootContextLoader
-07:07:23.413 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [co.com.ceiba.parqueadero.adn.infraestructura.integracion.ServicioCrearIT]: class path resource [co/com/ceiba/parqueadero/adn/infraestructura/integracion/ServicioCrearIT-context.xml] does not exist
-07:07:23.414 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [co.com.ceiba.parqueadero.adn.infraestructura.integracion.ServicioCrearIT]: class path resource [co/com/ceiba/parqueadero/adn/infraestructura/integracion/ServicioCrearITContext.groovy] does not exist
-07:07:23.414 [Test worker] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [co.com.ceiba.parqueadero.adn.infraestructura.integracion.ServicioCrearIT]: no resource found for suffixes {-context.xml, Context.groovy}.
-07:07:23.519 [Test worker] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [co.com.ceiba.parqueadero.adn.infraestructura.integracion.ServicioCrearIT]
-07:07:23.763 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [co.com.ceiba.parqueadero.adn.infraestructura.integracion.ServicioCrearIT]: using defaults.
-07:07:23.765 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
-07:07:23.810 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@780ab963, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@1099c622, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@eb88618, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@47209bab, org.springframework.test.context.support.DirtiesContextTestExecutionListener@6a4ce38d, org.springframework.test.context.transaction.TransactionalTestExecutionListener@343a9030, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@7ef848e9, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@3dc6695e, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@309bb5e0, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@504018d3, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@6cc3ad32, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@6241b56d]
-07:07:23.815 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [co.com.ceiba.parqueadero.adn.infraestructura.integracion.ServicioCrearIT]
-07:07:23.816 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [co.com.ceiba.parqueadero.adn.infraestructura.integracion.ServicioCrearIT]
-07:07:23.818 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [co.com.ceiba.parqueadero.adn.infraestructura.integracion.ServicioCrearIT]
-07:07:23.818 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [co.com.ceiba.parqueadero.adn.infraestructura.integracion.ServicioCrearIT]
-07:07:23.828 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@7e84591a testClass = ServicioCrearIT, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@5b2aa682 testClass = ServicioCrearIT, locations = '{}', classes = '{class co.com.ceiba.parqueadero.adn.ParqueaderoAdnApplication, class co.com.ceiba.parqueadero.adn.ParqueaderoAdnApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@e7e8512, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@d19a3cf, [ImportsContextCustomizer@1f1b8db key = [org.springframework.boot.test.autoconfigure.web.servlet.MockMvcAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcSecurityAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebClientAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebDriverAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@50cd61dc, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@51e6cf93, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@736bd47d], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> true]], class annotated with @DirtiesContext [false] with mode [null].
-07:07:23.829 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [co.com.ceiba.parqueadero.adn.infraestructura.integracion.ServicioCrearIT]
-07:07:23.830 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [co.com.ceiba.parqueadero.adn.infraestructura.integracion.ServicioCrearIT]
-07:07:23.890 [Test worker] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=-1}
+  <testcase name="postIngresarVehiculoTest" classname="co.com.ceiba.parqueadero.adn.infraestructura.integracion.ServicioCrearIT" time="0.614"/>
+  <testcase name="getListaTest" classname="co.com.ceiba.parqueadero.adn.infraestructura.integracion.ServicioCrearIT" time="0.087"/>
+  <testcase name="putSalidaVehiculoTest" classname="co.com.ceiba.parqueadero.adn.infraestructura.integracion.ServicioCrearIT" time="0.041">
+    <failure message="org.springframework.web.util.NestedServletException: Request processing failed; nested exception is java.lang.NullPointerException" type="org.springframework.web.util.NestedServletException">org.springframework.web.util.NestedServletException: Request processing failed; nested exception is java.lang.NullPointerException
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1013)
+	at org.springframework.web.servlet.FrameworkServlet.doPut(FrameworkServlet.java:919)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:663)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at org.springframework.test.web.servlet.TestDispatcherServlet.service(TestDispatcherServlet.java:71)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.springframework.mock.web.MockFilterChain$ServletFilterProxy.doFilter(MockFilterChain.java:166)
+	at org.springframework.mock.web.MockFilterChain.doFilter(MockFilterChain.java:133)
+	at org.springframework.test.web.servlet.MockMvc.perform(MockMvc.java:182)
+	at co.com.ceiba.parqueadero.adn.infraestructura.integracion.ServicioCrearIT.putSalidaVehiculoTest(ServicioCrearIT.java:73)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestExecutionCallbacks.evaluate(RunBeforeTestExecutionCallbacks.java:74)
+	at org.springframework.test.context.junit4.statements.RunAfterTestExecutionCallbacks.evaluate(RunAfterTestExecutionCallbacks.java:84)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:84)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:251)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.runTestClass(JUnitTestClassExecutor.java:110)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:58)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:38)
+	at org.gradle.api.internal.tasks.testing.junit.AbstractJUnitTestClassProcessor.processTestClass(AbstractJUnitTestClassProcessor.java:62)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass(SuiteTestClassProcessor.java:51)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:32)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:93)
+	at com.sun.proxy.$Proxy2.processTestClass(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.processTestClass(TestWorker.java:118)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:175)
+	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:157)
+	at org.gradle.internal.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:404)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:63)
+	at org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:46)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:55)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.NullPointerException
+	at co.com.ceiba.parqueadero.adn.infraestructura.mapeador.VehiculoMapeador.convertirADominio(VehiculoMapeador.java:16)
+	at co.com.ceiba.parqueadero.adn.infraestructura.adaptador.RepositorioVehiculoH2Adaptador.buscarPorPlaca(RepositorioVehiculoH2Adaptador.java:49)
+	at co.com.ceiba.parqueadero.adn.infraestructura.adaptador.RepositorioVehiculoH2Adaptador$$FastClassBySpringCGLIB$$3a466947.invoke(&lt;generated&gt;)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:749)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at co.com.ceiba.parqueadero.adn.infraestructura.adaptador.RepositorioVehiculoH2Adaptador$$EnhancerBySpringCGLIB$$b78b4119.buscarPorPlaca(&lt;generated&gt;)
+	at co.com.ceiba.parqueadero.adn.dominio.servicio.ServicioActualizarSalidaVehiculo.validarRegistro(ServicioActualizarSalidaVehiculo.java:37)
+	at co.com.ceiba.parqueadero.adn.dominio.servicio.ServicioActualizarSalidaVehiculo.actualizar(ServicioActualizarSalidaVehiculo.java:24)
+	at co.com.ceiba.parqueadero.adn.aplicacion.comando.manejador.ManejadorSalidaVehiculo.actualizar(ManejadorSalidaVehiculo.java:14)
+	at co.com.ceiba.parqueadero.adn.infraestructura.controlador.VehiculoControlador.getSalida(VehiculoControlador.java:48)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:104)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:892)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1039)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	... 65 more
+</failure>
+  </testcase>
+  <system-out><![CDATA[13:51:16.026 [Test worker] DEBUG org.springframework.test.context.junit4.SpringJUnit4ClassRunner - SpringJUnit4ClassRunner constructor called with [class co.com.ceiba.parqueadero.adn.infraestructura.integracion.ServicioCrearIT]
+13:51:16.067 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+13:51:16.093 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+13:51:16.158 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [co.com.ceiba.parqueadero.adn.infraestructura.integracion.ServicioCrearIT] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
+13:51:16.185 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [co.com.ceiba.parqueadero.adn.infraestructura.integracion.ServicioCrearIT], using SpringBootContextLoader
+13:51:16.195 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [co.com.ceiba.parqueadero.adn.infraestructura.integracion.ServicioCrearIT]: class path resource [co/com/ceiba/parqueadero/adn/infraestructura/integracion/ServicioCrearIT-context.xml] does not exist
+13:51:16.196 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [co.com.ceiba.parqueadero.adn.infraestructura.integracion.ServicioCrearIT]: class path resource [co/com/ceiba/parqueadero/adn/infraestructura/integracion/ServicioCrearITContext.groovy] does not exist
+13:51:16.197 [Test worker] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [co.com.ceiba.parqueadero.adn.infraestructura.integracion.ServicioCrearIT]: no resource found for suffixes {-context.xml, Context.groovy}.
+13:51:16.340 [Test worker] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [co.com.ceiba.parqueadero.adn.infraestructura.integracion.ServicioCrearIT]
+13:51:16.675 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [co.com.ceiba.parqueadero.adn.infraestructura.integracion.ServicioCrearIT]: using defaults.
+13:51:16.676 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+13:51:16.735 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@4cc608e9, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@303fb2d9, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@ad4b7fe, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@1dd6dc08, org.springframework.test.context.support.DirtiesContextTestExecutionListener@612b0e1b, org.springframework.test.context.transaction.TransactionalTestExecutionListener@2ccfc19d, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@30bf8bd, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@28165248, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@11f4da87, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@43e5220d, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@1f77f4dc, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@5696168]
+13:51:16.741 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [co.com.ceiba.parqueadero.adn.infraestructura.integracion.ServicioCrearIT]
+13:51:16.743 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [co.com.ceiba.parqueadero.adn.infraestructura.integracion.ServicioCrearIT]
+13:51:16.743 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [co.com.ceiba.parqueadero.adn.infraestructura.integracion.ServicioCrearIT]
+13:51:16.743 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [co.com.ceiba.parqueadero.adn.infraestructura.integracion.ServicioCrearIT]
+13:51:16.755 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@17a4c8f4 testClass = ServicioCrearIT, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@1e434dfd testClass = ServicioCrearIT, locations = '{}', classes = '{class co.com.ceiba.parqueadero.adn.ParqueaderoAdnApplication, class co.com.ceiba.parqueadero.adn.ParqueaderoAdnApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@e7e8512, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@295c6ced, [ImportsContextCustomizer@43027227 key = [org.springframework.boot.test.autoconfigure.web.servlet.MockMvcAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcSecurityAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebClientAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebDriverAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@6219e3d5, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@3056dda6, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@26651b40], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> true]], class annotated with @DirtiesContext [false] with mode [null].
+13:51:16.755 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [co.com.ceiba.parqueadero.adn.infraestructura.integracion.ServicioCrearIT]
+13:51:16.756 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [co.com.ceiba.parqueadero.adn.infraestructura.integracion.ServicioCrearIT]
+13:51:16.825 [Test worker] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=-1}
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -33,48 +131,45 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::        (v2.1.6.RELEASE)
 
-2019-08-13 07:07:24.588  INFO 14556 --- [    Test worker] c.c.c.p.a.i.integracion.ServicioCrearIT  : Starting ServicioCrearIT on DANIEL-HERNANDEZ with PID 14556 (started by daniel.hernandez in C:\Users\daniel.hernandez\Desktop\git\parqueaderoADN)
-2019-08-13 07:07:24.591  INFO 14556 --- [    Test worker] c.c.c.p.a.i.integracion.ServicioCrearIT  : No active profile set, falling back to default profiles: default
-2019-08-13 07:07:26.497  INFO 14556 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
-2019-08-13 07:07:26.651  INFO 14556 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 138ms. Found 1 repository interfaces.
-2019-08-13 07:07:27.492  INFO 14556 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$330c0ad6] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-08-13 07:07:27.937  INFO 14556 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2019-08-13 07:07:28.366  INFO 14556 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2019-08-13 07:07:28.564  INFO 14556 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+2019-08-13 13:51:17.725  INFO 17880 --- [    Test worker] c.c.c.p.a.i.integracion.ServicioCrearIT  : Starting ServicioCrearIT on DANIEL-HERNANDEZ with PID 17880 (started by daniel.hernandez in C:\Users\daniel.hernandez\Desktop\git\parqueaderoADN)
+2019-08-13 13:51:17.727  INFO 17880 --- [    Test worker] c.c.c.p.a.i.integracion.ServicioCrearIT  : No active profile set, falling back to default profiles: default
+2019-08-13 13:51:20.024  INFO 17880 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-08-13 13:51:20.171  INFO 17880 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 130ms. Found 1 repository interfaces.
+2019-08-13 13:51:21.374  INFO 17880 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$c6f2eef1] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-08-13 13:51:21.910  INFO 17880 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-08-13 13:51:22.524  INFO 17880 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-08-13 13:51:22.804  INFO 17880 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
 	name: default
 	...]
-2019-08-13 07:07:28.703  INFO 14556 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.10.Final}
-2019-08-13 07:07:28.706  INFO 14556 --- [    Test worker] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
-2019-08-13 07:07:28.786  INFO 14556 --- [    Test worker] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
-2019-08-13 07:07:29.043  INFO 14556 --- [    Test worker] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-08-13 13:51:23.027  INFO 17880 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.10.Final}
+2019-08-13 13:51:23.032  INFO 17880 --- [    Test worker] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-08-13 13:51:23.125  INFO 17880 --- [    Test worker] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-08-13 13:51:23.454  INFO 17880 --- [    Test worker] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
 Hibernate: drop table VehiculoEntidad if exists
 Hibernate: create table VehiculoEntidad (id bigint generated by default as identity, cilindraje integer, fechaIngreso timestamp not null, fechaSalida timestamp, placa varchar(255) not null, tipoVehiculo varchar(255) not null, valor double, primary key (id))
-2019-08-13 07:07:30.038  INFO 14556 --- [    Test worker] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'ScriptSourceInputFromUrl(file:/C:/Users/daniel.hernandez/Desktop/git/parqueaderoADN/build/resources/main/import.sql)'
-Hibernate: INSERT INTO VEHICULOENTIDAD(ID, CILINDRAJE, FECHAINGRESO, FECHASALIDA, PLACA, TIPOVEHICULO,VALOR) VALUES (100, 200, '2019-07-23', NULL, 'MMM000','MOTO', 0)
-Hibernate: INSERT INTO VEHICULOENTIDAD(ID, CILINDRAJE, FECHAINGRESO, FECHASALIDA, PLACA, TIPOVEHICULO,VALOR) VALUES (101, 200, '2019-07-23', NULL, 'MMM001','CARRO', 0)
-2019-08-13 07:07:30.050  INFO 14556 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2019-08-13 07:07:30.688  INFO 14556 --- [    Test worker] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
-2019-08-13 07:07:32.218  INFO 14556 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2019-08-13 07:07:32.361  WARN 14556 --- [    Test worker] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2019-08-13 07:07:33.073  INFO 14556 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2019-08-13 07:07:33.074  INFO 14556 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2019-08-13 07:07:33.101  INFO 14556 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 26 ms
-2019-08-13 07:07:33.142  INFO 14556 --- [    Test worker] c.c.c.p.a.i.integracion.ServicioCrearIT  : Started ServicioCrearIT in 9.235 seconds (JVM running for 12.926)
-2019-08-13 07:07:33.192  INFO 14556 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2019-08-13 07:07:33.192  INFO 14556 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2019-08-13 07:07:33.195  INFO 14556 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 3 ms
+2019-08-13 13:51:24.785  INFO 17880 --- [    Test worker] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'ScriptSourceInputFromUrl(file:/C:/Users/daniel.hernandez/Desktop/git/parqueaderoADN/build/resources/main/import.sql)'
+2019-08-13 13:51:24.792  INFO 17880 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-08-13 13:51:25.657  INFO 17880 --- [    Test worker] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-08-13 13:51:27.661  INFO 17880 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-08-13 13:51:27.854  WARN 17880 --- [    Test worker] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-08-13 13:51:28.719  INFO 17880 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2019-08-13 13:51:28.719  INFO 17880 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2019-08-13 13:51:28.752  INFO 17880 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 33 ms
+2019-08-13 13:51:28.804  INFO 17880 --- [    Test worker] c.c.c.p.a.i.integracion.ServicioCrearIT  : Started ServicioCrearIT in 11.954 seconds (JVM running for 16.85)
+2019-08-13 13:51:28.862  INFO 17880 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2019-08-13 13:51:28.863  INFO 17880 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2019-08-13 13:51:28.867  INFO 17880 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 4 ms
 Hibernate: select case when count(vehiculoen0_.id)>0 then 1 else 0 end as col_0_0_ from VehiculoEntidad vehiculoen0_ where vehiculoen0_.placa=? and (vehiculoen0_.fechaSalida is null)
 Hibernate: select count(vehiculoen0_.id) as col_0_0_ from VehiculoEntidad vehiculoen0_ where vehiculoen0_.tipoVehiculo=? and (vehiculoen0_.fechaSalida is null)
 Hibernate: insert into VehiculoEntidad (id, cilindraje, fechaIngreso, fechaSalida, placa, tipoVehiculo, valor) values (null, ?, ?, ?, ?, ?, ?)
-2019-08-13 07:07:33.741  INFO 14556 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2019-08-13 07:07:33.741  INFO 14556 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2019-08-13 07:07:33.745  INFO 14556 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 4 ms
+2019-08-13 13:51:29.471  INFO 17880 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2019-08-13 13:51:29.471  INFO 17880 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2019-08-13 13:51:29.475  INFO 17880 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 3 ms
 Hibernate: select vehiculoen0_.id as id1_0_, vehiculoen0_.cilindraje as cilindra2_0_, vehiculoen0_.fechaIngreso as fechaIng3_0_, vehiculoen0_.fechaSalida as fechaSal4_0_, vehiculoen0_.placa as placa5_0_, vehiculoen0_.tipoVehiculo as tipoVehi6_0_, vehiculoen0_.valor as valor7_0_ from VehiculoEntidad vehiculoen0_ where vehiculoen0_.fechaSalida is null
-2019-08-13 07:07:33.799  INFO 14556 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2019-08-13 07:07:33.800  INFO 14556 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2019-08-13 07:07:33.804  INFO 14556 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 3 ms
+2019-08-13 13:51:29.558  INFO 17880 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2019-08-13 13:51:29.558  INFO 17880 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2019-08-13 13:51:29.565  INFO 17880 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 6 ms
 Hibernate: select vehiculoen0_.id as id1_0_, vehiculoen0_.cilindraje as cilindra2_0_, vehiculoen0_.fechaIngreso as fechaIng3_0_, vehiculoen0_.fechaSalida as fechaSal4_0_, vehiculoen0_.placa as placa5_0_, vehiculoen0_.tipoVehiculo as tipoVehi6_0_, vehiculoen0_.valor as valor7_0_ from VehiculoEntidad vehiculoen0_ where vehiculoen0_.placa=? and (vehiculoen0_.fechaSalida is null)
-Hibernate: update VehiculoEntidad set cilindraje=?, fechaIngreso=?, fechaSalida=?, placa=?, tipoVehiculo=?, valor=? where id=?
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
