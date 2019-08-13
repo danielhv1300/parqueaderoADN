@@ -33,31 +33,6 @@ public class ServicioCrearTest {
 	}
 
 	@Test
-	public void vehiculoNoParqueado() {
-
-		// Arrange
-		VehiculoTestDataBuilder vehiculoDataBuilder = new VehiculoTestDataBuilder()
-				.conTipoVehiculo(Constantes.TIPO_VEHICULO_CARRO);
-
-		Vehiculo vehiculo = vehiculoDataBuilder.build();
-
-		ServicioActualizarSalidaVehiculo salidaServicio = new ServicioActualizarSalidaVehiculo(vehiculoRepositorio,
-				fechaUtil);
-
-		when(vehiculoRepositorio.crear(vehiculo)).thenReturn(null);
-
-		// Act
-
-		try {
-			salidaServicio.actualizar(vehiculo.getPlaca());
-			fail();
-		} catch (ExcepcionNoExisteRegistroVehiculo e) {
-			// Assert
-			assertEquals(Vehiculo.MENSAJE_VEHICULO_NO_EXISTE_EN_PARQUEADERO, e.getMessage());
-		}
-	}
-
-	@Test
 	public void crearParqueoMoto() {
 		// Arrange
 		VehiculoTestDataBuilder vehiculoDataBuilder = new VehiculoTestDataBuilder().conPlaca(Constantes.PLACA_MOTO)

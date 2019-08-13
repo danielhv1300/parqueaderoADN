@@ -43,12 +43,12 @@ public class ServicioActualizarSalidaVehiculo {
 	}
 
 	public void calcularPrecioMoto(Vehiculo vehiculo) {
-		double value;
+		double valor;
 		Date fechaIngreso = vehiculo.getFechaIngreso().getTime();
 		Date fechaSalida = vehiculo.getFechaSalida().getTime();
-		double tiempoEnParqueaderoEnMiliSegundos = (fechaSalida.getTime() - fechaIngreso.getTime());
-		double hora = (tiempoEnParqueaderoEnMiliSegundos / 3600000);
-		double minuto = (tiempoEnParqueaderoEnMiliSegundos / 60000);
+		double milisegundo = (fechaSalida.getTime() - fechaIngreso.getTime());
+		double hora = (milisegundo / 3600000);
+		double minuto = (milisegundo / 60000);
 		long totalHora = Math.round(hora);
 		long totalMinutos = Math.round(minuto);
 		int totalDia = (int) totalHora / Constantes.FIN_EN_HORAS_PARA_COBRO_POR_DIA;
@@ -56,22 +56,22 @@ public class ServicioActualizarSalidaVehiculo {
 
 		if (totalHora < Constantes.VALOR_HORA_MOTO) {
 			if ((totalMinutos >= 0) && (totalHora == 0)) {
-				value = Constantes.VALOR_HORA_MOTO;
+				valor = Constantes.VALOR_HORA_MOTO;
 			} else {
-				value = totalHora * Constantes.VALOR_HORA_MOTO;
+				valor = totalHora * Constantes.VALOR_HORA_MOTO;
 			}
 		} else if (totalHoraNuevoDia == 0 || (totalHoraNuevoDia >= Constantes.INICIO_EN_HORAS_PARA_COBRO_POR_DIA
 				&& totalHoraNuevoDia < Constantes.FIN_EN_HORAS_PARA_COBRO_POR_DIA)) {
-			value = (Constantes.VALOR_DIA_MOTO * (totalDia == 0 ? 1:totalDia));
+			valor = (Constantes.VALOR_DIA_MOTO * (totalDia == 0 ? 1:totalDia));
 		} else {
-			value = ((Constantes.VALOR_DIA_MOTO * totalDia) + (totalHoraNuevoDia * Constantes.VALOR_HORA_MOTO));
+			valor = ((Constantes.VALOR_DIA_MOTO * totalDia) + (totalHoraNuevoDia * Constantes.VALOR_HORA_MOTO));
 		}
 
 		if (Integer.valueOf(vehiculo.getCilindraje()) >= Constantes.ALTO_CILINDRAJE_MOTO) {
-			value = value + Constantes.VALOR_ADICIONAL_MOTO_POR_CILINDRAJE;
+			valor = valor + Constantes.VALOR_ADICIONAL_MOTO_POR_CILINDRAJE;
 		}
 
-		vehiculo.setValor(value);
+		vehiculo.setValor(valor);
 	}
 
 	public void calcularPrecioCarro(Vehiculo vehiculo) {

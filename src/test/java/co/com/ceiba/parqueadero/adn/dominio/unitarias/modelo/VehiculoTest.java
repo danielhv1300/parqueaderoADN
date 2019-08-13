@@ -14,6 +14,7 @@ import co.com.ceiba.parqueadero.adn.dominio.constantes.Constantes;
 import co.com.ceiba.parqueadero.adn.dominio.excepcion.ExcepcionCampoObligatorio;
 import co.com.ceiba.parqueadero.adn.dominio.excepcion.ExcepcionRestriccionPlaca;
 import co.com.ceiba.parqueadero.adn.dominio.excepcion.ExcepcionSinCupoDisponible;
+import co.com.ceiba.parqueadero.adn.dominio.excepcion.ExcepcionTipoVehiculo;
 import co.com.ceiba.parqueadero.adn.dominio.modelo.Fecha;
 import co.com.ceiba.parqueadero.adn.dominio.modelo.Vehiculo;
 import co.com.ceiba.parqueadero.adn.dominio.repositorio.VehiculoRepositorio;
@@ -30,6 +31,7 @@ public class VehiculoTest {
 		this.vehiculoRepositorio = mock(VehiculoRepositorio.class);
 		this.fechaUtil = mock(Fecha.class);
 		this.crearServicio = new ServicioCrearVehiculo(vehiculoRepositorio, fechaUtil);
+		
 	}
 
 	@Test
@@ -55,8 +57,7 @@ public class VehiculoTest {
 				.conFechaIngreso(fechaIngreso);
 
 		Vehiculo vehiculo = vehiculoDataBuilder.build();
-
-		ServicioCrearVehiculo crearServicio = new ServicioCrearVehiculo(vehiculoRepositorio, fechaUtil);
+		crearServicio = new ServicioCrearVehiculo(vehiculoRepositorio, fechaUtil);
 		when(fechaUtil.getFechaActual()).thenCallRealMethod();
 		// Act
 		try {
@@ -75,7 +76,7 @@ public class VehiculoTest {
 
 		Vehiculo vehiculo = vehiculoDataBuilder.build();
 
-		ServicioCrearVehiculo crearServicio = new ServicioCrearVehiculo(vehiculoRepositorio, fechaUtil);
+		crearServicio = new ServicioCrearVehiculo(vehiculoRepositorio, fechaUtil);
 
 		when(vehiculoRepositorio.cuposPorTipoVehiculo(Constantes.TIPO_VEHICULO_CARRO))
 				.thenReturn(Constantes.CAPACIDAD_MAXIMA_CARROS);
@@ -97,7 +98,7 @@ public class VehiculoTest {
 
         vehiculoTestDataBuilder.conPlaca(null);
         
-       Vehiculo vehiculo = vehiculoTestDataBuilder.build();
+        vehiculoTestDataBuilder.build();
     }
 	
 	
@@ -107,8 +108,8 @@ public class VehiculoTest {
         VehiculoTestDataBuilder vehiculoTestDataBuilder = new VehiculoTestDataBuilder();
 
         vehiculoTestDataBuilder.conTipoVehiculo(null);
-        
-       Vehiculo vehiculo = vehiculoTestDataBuilder.build();
+    
+        vehiculoTestDataBuilder.build();
     }
 	
 	@Test(expected = ExcepcionCampoObligatorio.class)
@@ -118,7 +119,7 @@ public class VehiculoTest {
 
         vehiculoTestDataBuilder.conTipoVehiculo(null);
         
-       Vehiculo vehiculo = vehiculoTestDataBuilder.build();
+       vehiculoTestDataBuilder.build();
     }
 	
 	
@@ -131,7 +132,7 @@ public class VehiculoTest {
 
 		Vehiculo vehiculo = vehiculoDataBuilder.build();
 
-		ServicioCrearVehiculo crearServicio = new ServicioCrearVehiculo(vehiculoRepositorio, fechaUtil);
+		crearServicio = new ServicioCrearVehiculo(vehiculoRepositorio, fechaUtil);
 
 		when(vehiculoRepositorio.cuposPorTipoVehiculo(Constantes.TIPO_VEHICULO_MOTO))
 				.thenReturn(Constantes.CAPACIDAD_MAXIMA_MOTOS);
@@ -141,10 +142,21 @@ public class VehiculoTest {
 			crearServicio.crear(vehiculo);
 			fail();
 		} catch (ExcepcionSinCupoDisponible e) {
-			// Assert
+			// Assert - Act - Assert
 			assertEquals(Vehiculo.MENSAJE_SIN_CUPOS_DISPONIBLES, e.getMessage());
 		}
 	}
+	
+    @Test(expected= ExcepcionTipoVehiculo.class)
+    public void validarTipoVehiculoIncorrecto() {
+        //Arrange
+    	VehiculoTestDataBuilder vehiculoTestDataBuilder = new VehiculoTestDataBuilder();
+    	String tipoVehiculo = "carr";
+        vehiculoTestDataBuilder.conTipoVehiculo(tipoVehiculo);
+
+        //
+        vehiculoTestDataBuilder.build();
+    }
 
 }
 
