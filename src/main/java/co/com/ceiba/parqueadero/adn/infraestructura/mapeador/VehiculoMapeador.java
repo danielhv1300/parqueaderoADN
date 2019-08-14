@@ -22,13 +22,10 @@ public final class VehiculoMapeador {
 
 	public static VehiculoEntidad convertirAEntidad(Vehiculo vehiculo) {
 		VehiculoEntidad vehiculoEntidad;
-		if (vehiculo == null) {
-			vehiculoEntidad = null;
-		} else {
+
 			vehiculoEntidad = new VehiculoEntidad(vehiculo.getId(), vehiculo.getPlaca(), vehiculo.getTipoVehiculo(),
 					vehiculo.getCilindraje(), vehiculo.getFechaIngreso(), vehiculo.getFechaSalida(),
 					vehiculo.getValor());
-		}
 
 		return vehiculoEntidad;
 	}

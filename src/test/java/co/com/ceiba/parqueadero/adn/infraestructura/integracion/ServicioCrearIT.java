@@ -65,6 +65,7 @@ public class ServicioCrearIT {
 
 	}
 	
+
 		@Test
 	public void putSalidaVehiculoTest() throws Exception {
 		// Arrange
