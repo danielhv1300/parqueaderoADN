@@ -1,7 +1,5 @@
 package co.com.ceiba.parqueadero.adn.infraestructura.mapeador;
 
-import java.util.ArrayList;
-import java.util.List;
 
 import org.springframework.stereotype.Component;
 
@@ -35,14 +33,5 @@ public final class VehiculoMapeador {
 		return vehiculoEntidad;
 	}
 
-	public static List<Vehiculo> listaConvertirADominio(List<VehiculoEntidad> listaVehiculoEntidad) {
-		 List<Vehiculo> listVehiculo = new ArrayList<>();
 
-		listaVehiculoEntidad.forEach(vehiculoEntidad -> listVehiculo.add(new Vehiculo(vehiculoEntidad.getId(),
-				vehiculoEntidad.getPlaca(), vehiculoEntidad.getTipoVehiculo(), vehiculoEntidad.getCilindraje(),
-				vehiculoEntidad.getFechaIngreso(), vehiculoEntidad.getFechaSalida(), vehiculoEntidad.getValor())));
-
-		return listVehiculo;
-
-	}
 }

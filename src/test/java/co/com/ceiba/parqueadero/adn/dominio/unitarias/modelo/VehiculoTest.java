@@ -45,6 +45,7 @@ public class VehiculoTest {
 		Vehiculo vehiculoRta = this.crearServicio.crear(vehiculo);
 		assertEquals(vehiculoRta, vehiculo);
 	}
+	
 
 	@Test
 	public void cuandoVehiculoConPlacaQueIniciaConLetraAIntentaIngresarAlParqueaderoEntoncesSistemaRetornaExcepcionNoPuedeEntrarHoyNoEsLunesODomingo() {

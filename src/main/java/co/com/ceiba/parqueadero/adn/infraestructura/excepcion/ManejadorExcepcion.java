@@ -3,7 +3,6 @@ package co.com.ceiba.parqueadero.adn.infraestructura.excepcion;
 import java.util.concurrent.ConcurrentHashMap;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
@@ -18,6 +17,7 @@ import co.com.ceiba.parqueadero.adn.dominio.excepcion.ExcepcionTipoVehiculo;
 @ControllerAdvice
 public class ManejadorExcepcion extends ResponseEntityExceptionHandler {
 
+
 	private static final ConcurrentHashMap<String, Integer> ESTADO_PETICION = new ConcurrentHashMap<>();
 
 	public ManejadorExcepcion() {
@@ -29,5 +29,5 @@ public class ManejadorExcepcion extends ResponseEntityExceptionHandler {
 		ESTADO_PETICION.put(ExcepcionNoExisteRegistroVehiculo.class.getSimpleName(), HttpStatus.BAD_REQUEST.value());
 		ESTADO_PETICION.put(ExcepcionImposibleActualizar.class.getSimpleName(), HttpStatus.BAD_REQUEST.value());
 	}
-
+	
 }
