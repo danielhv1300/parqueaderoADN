@@ -237,6 +237,7 @@ public class ServicioActualizarVehiculoTest {
 		assertEquals((valorHora * 2) + valorDia, vehiculo.getValor(), 0);
 
 	}
+	
 
 	@Test
 	public void vehiculoNoParqueado() {
@@ -262,5 +263,38 @@ public class ServicioActualizarVehiculoTest {
 			assertEquals(Vehiculo.MENSAJE_VEHICULO_NO_EXISTE_EN_PARQUEADERO, e.getMessage());
 		}
 	}
+	
+	@Test
+	public void validarHoraNuevoDiaMoto() {
+		// Arrange
+		double valorDia = 4000;
+		double valorHora = 500;
+
+		Calendar fechaSalida = Calendar.getInstance();
+		Calendar fechaIngreso = Calendar.getInstance();
+
+		fechaSalida.set(2019, 8, 6, 10, 0, 0);
+
+		fechaIngreso.set(2019, 8, 6, 0, 0, 0);
+
+		VehiculoTestDataBuilder vehiculoDataBuilder = new VehiculoTestDataBuilder()
+				.conTipoVehiculo(Constantes.TIPO_VEHICULO_MOTO).conCilindraje(Constantes.CILINDRAJE_MOTO).conFechaIngreso(fechaIngreso)
+				.conFechaSalida(fechaSalida);
+
+		Vehiculo vehiculo = vehiculoDataBuilder.build();
+
+		ServicioActualizarSalidaVehiculo servicioSalida = new ServicioActualizarSalidaVehiculo(vehiculoRepositorio,
+				fechaUtil);
+		when(fechaUtil.getFechaActual()).thenReturn(fechaSalida);
+		when(vehiculoRepositorio.buscarPorPlaca(vehiculo.getPlaca())).thenReturn(vehiculo);
+
+		// Act
+		servicioSalida.actualizar(vehiculo.getPlaca());
+
+		// Assert
+		assertEquals((valorHora * 2) + valorDia, vehiculo.getValor(), 0);
+
+	}
+
 
 }
