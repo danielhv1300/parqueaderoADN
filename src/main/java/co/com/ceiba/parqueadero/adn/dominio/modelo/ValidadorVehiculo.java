@@ -2,7 +2,6 @@ package co.com.ceiba.parqueadero.adn.dominio.modelo;
 
 import co.com.ceiba.parqueadero.adn.dominio.constantes.Constantes;
 import co.com.ceiba.parqueadero.adn.dominio.excepcion.ExcepcionCampoObligatorio;
-import co.com.ceiba.parqueadero.adn.dominio.excepcion.ExcepcionTipoVehiculo;
 
 public final class ValidadorVehiculo {
 
