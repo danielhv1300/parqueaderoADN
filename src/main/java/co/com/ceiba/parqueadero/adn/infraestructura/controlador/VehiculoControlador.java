@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import co.com.ceiba.parqueadero.adn.aplicacion.comando.VehiculoComando;
 import co.com.ceiba.parqueadero.adn.aplicacion.comando.manejador.ManejadorIngresoVehiculo;
 import co.com.ceiba.parqueadero.adn.aplicacion.comando.manejador.ManejadorSalidaVehiculo;
-import co.com.ceiba.parqueadero.adn.aplicacion.consulta.ManejadorConsulta;
+import co.com.ceiba.parqueadero.adn.aplicacion.consulta.ManejadorConsultarVehiculo;
 import co.com.ceiba.parqueadero.adn.dominio.modelo.Vehiculo;
 
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
@@ -24,10 +24,10 @@ public class VehiculoControlador {
 
 	private ManejadorIngresoVehiculo entradaVehiculoHandler;
 	private ManejadorSalidaVehiculo salidaVehiculoHandler;
-	private ManejadorConsulta manejadorConsulta;
+	private ManejadorConsultarVehiculo manejadorConsulta;
 
 	public VehiculoControlador(ManejadorIngresoVehiculo entradaVehiculoHandler,
-			ManejadorSalidaVehiculo salidaVehiculoHandler, ManejadorConsulta manejadorConsulta) {
+			ManejadorSalidaVehiculo salidaVehiculoHandler, ManejadorConsultarVehiculo manejadorConsulta) {
 		this.entradaVehiculoHandler = entradaVehiculoHandler;
 		this.salidaVehiculoHandler = salidaVehiculoHandler;
 		this.manejadorConsulta = manejadorConsulta;

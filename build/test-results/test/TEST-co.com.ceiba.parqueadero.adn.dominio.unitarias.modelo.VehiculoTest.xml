@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="co.com.ceiba.parqueadero.adn.dominio.unitarias.modelo.VehiculoTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2019-08-13T18:51:14" hostname="DANIEL-HERNANDEZ" time="1.514">
+<testsuite name="co.com.ceiba.parqueadero.adn.dominio.unitarias.modelo.VehiculoTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2019-08-20T06:30:58" hostname="DANIEL-HERNANDEZ" time="0.224">
   <properties/>
-  <testcase name="validarCupoCarro" classname="co.com.ceiba.parqueadero.adn.dominio.unitarias.modelo.VehiculoTest" time="1.465"/>
+  <testcase name="validarCupoCarro" classname="co.com.ceiba.parqueadero.adn.dominio.unitarias.modelo.VehiculoTest" time="0.214"/>
   <testcase name="validarCupoMoto" classname="co.com.ceiba.parqueadero.adn.dominio.unitarias.modelo.VehiculoTest" time="0.001"/>
-  <testcase name="cuandoVehiculoConPlacaQueIniciaConLetraAIntentaIngresarAlParqueaderoEntoncesSistemaRetornaExcepcionNoPuedeEntrarHoyNoEsLunesODomingo" classname="co.com.ceiba.parqueadero.adn.dominio.unitarias.modelo.VehiculoTest" time="0.033"/>
-  <testcase name="validarCampoCilindrajeObligatorio" classname="co.com.ceiba.parqueadero.adn.dominio.unitarias.modelo.VehiculoTest" time="0.001"/>
-  <testcase name="validarCampoTipoVehiculoObligatorio" classname="co.com.ceiba.parqueadero.adn.dominio.unitarias.modelo.VehiculoTest" time="0.001"/>
-  <testcase name="validarTipoVehiculoIncorrecto" classname="co.com.ceiba.parqueadero.adn.dominio.unitarias.modelo.VehiculoTest" time="0.002"/>
-  <testcase name="validarCrearVehiculo" classname="co.com.ceiba.parqueadero.adn.dominio.unitarias.modelo.VehiculoTest" time="0.004"/>
-  <testcase name="validarCampoPlacaObligatoria" classname="co.com.ceiba.parqueadero.adn.dominio.unitarias.modelo.VehiculoTest" time="0.001"/>
+  <testcase name="cuandoVehiculoConPlacaQueIniciaConLetraAIntentaIngresarAlParqueaderoEntoncesSistemaRetornaExcepcionNoPuedeEntrarHoyNoEsLunesODomingo" classname="co.com.ceiba.parqueadero.adn.dominio.unitarias.modelo.VehiculoTest" time="0.004"/>
+  <testcase name="validarPlacaObligatoria" classname="co.com.ceiba.parqueadero.adn.dominio.unitarias.modelo.VehiculoTest" time="0.002"/>
+  <testcase name="validarTipoVehiculoObligatorio" classname="co.com.ceiba.parqueadero.adn.dominio.unitarias.modelo.VehiculoTest" time="0.001"/>
+  <testcase name="validarCrearVehiculo" classname="co.com.ceiba.parqueadero.adn.dominio.unitarias.modelo.VehiculoTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="co.com.ceiba.parqueadero.adn.dominio.unitarias.servicio.ServicioCrearTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2019-08-13T18:51:15" hostname="DANIEL-HERNANDEZ" time="0.003">
+<testsuite name="co.com.ceiba.parqueadero.adn.dominio.unitarias.servicio.ServicioCrearTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2019-08-20T06:30:58" hostname="DANIEL-HERNANDEZ" time="0.002">
   <properties/>
-  <testcase name="crearParqueoMoto" classname="co.com.ceiba.parqueadero.adn.dominio.unitarias.servicio.ServicioCrearTest" time="0.002"/>
+  <testcase name="crearParqueoMoto" classname="co.com.ceiba.parqueadero.adn.dominio.unitarias.servicio.ServicioCrearTest" time="0.001"/>
   <testcase name="crearParqueoCarro" classname="co.com.ceiba.parqueadero.adn.dominio.unitarias.servicio.ServicioCrearTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

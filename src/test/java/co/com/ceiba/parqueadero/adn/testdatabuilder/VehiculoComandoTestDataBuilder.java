@@ -5,13 +5,11 @@ import co.com.ceiba.parqueadero.adn.aplicacion.comando.VehiculoComando;
 
 public class VehiculoComandoTestDataBuilder {
 
-	private Long id;
 	private String placa;
 	private String tipoVehiculo;
 	private int cilindraje;
 
     public VehiculoComandoTestDataBuilder(){
-        this.id = 1L;
         this.placa = "EOW328";
         this.tipoVehiculo = "CARRO";
         this.cilindraje = 0;
@@ -19,7 +17,6 @@ public class VehiculoComandoTestDataBuilder {
     }
 
     public VehiculoComandoTestDataBuilder id(Long id) {
-        this.id = id;
         return this;
     }
 

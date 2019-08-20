@@ -51,8 +51,6 @@ public class VehiculoEntidad {
 	public Long getId() {
 		return id;
 	}
-	
-	
 
 	public String getPlaca() {
 		return placa;

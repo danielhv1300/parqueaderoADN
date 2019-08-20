@@ -129,7 +129,7 @@ public class ServicioActualizarVehiculoTest {
 		fechaIngreso.set(2019, 8, 6, 0, 0, 0);
 
 		VehiculoTestDataBuilder vehiculoDataBuilder = new VehiculoTestDataBuilder()
-				.conTipoVehiculo(Constantes.TIPO_VEHICULO_MOTO).conFechaIngreso(fechaIngreso)
+				.conTipoVehiculo(Constantes.TIPO_VEHICULO_MOTO).conCilindraje(Constantes.CILINDRAJE_MOTO).conFechaIngreso(fechaIngreso)
 				.conFechaSalida(fechaSalida);
 
 		Vehiculo vehiculo = vehiculoDataBuilder.build();
