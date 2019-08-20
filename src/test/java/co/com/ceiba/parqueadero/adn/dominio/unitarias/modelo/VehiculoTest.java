@@ -14,7 +14,6 @@ import co.com.ceiba.parqueadero.adn.dominio.constantes.Constantes;
 import co.com.ceiba.parqueadero.adn.dominio.excepcion.ExcepcionCampoObligatorio;
 import co.com.ceiba.parqueadero.adn.dominio.excepcion.ExcepcionRestriccionPlaca;
 import co.com.ceiba.parqueadero.adn.dominio.excepcion.ExcepcionSinCupoDisponible;
-import co.com.ceiba.parqueadero.adn.dominio.excepcion.ExcepcionTipoVehiculo;
 import co.com.ceiba.parqueadero.adn.dominio.modelo.Fecha;
 import co.com.ceiba.parqueadero.adn.dominio.modelo.Vehiculo;
 import co.com.ceiba.parqueadero.adn.dominio.repositorio.VehiculoRepositorio;
@@ -117,7 +116,7 @@ public class VehiculoTest {
         TestBase.assertThrows(() -> vehiculoTestDataBuilder.build(), ExcepcionCampoObligatorio.class, Vehiculo.MENSAJE_CAMPO_TIPO_VEHICULO_OBLIGATORIO);
     }
 
-	/* @Test
+	 @Test
 	    public void validarCilindrajeObligatorio() {
 	        //Arrange
 	    	VehiculoTestDataBuilder vehiculoTestDataBuilder = new VehiculoTestDataBuilder();
@@ -128,7 +127,7 @@ public class VehiculoTest {
 	        //Act - Assert
 	        TestBase.assertThrows(() -> vehiculoTestDataBuilder.build(),ExcepcionCampoObligatorio.class,Vehiculo.MENSAJE_CAMPO_CILINDRAJE_OBLIGATORIO);
 	    }
-*/
+
 	@Test
 	public void validarCupoMoto() {
 		// Arrange
