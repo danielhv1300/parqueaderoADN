@@ -90,7 +90,7 @@ public class ServicioActualizarVehiculoTest {
 	@Test
 	public void validarDiaMotoAltoCilindraje() {
 		// Arrange
-		double valorDia = Constantes.VALOR_DIA_MOTO + Constantes.VALOR_HORA_MOTO;
+		double valorDia = Constantes.VALOR_DIA_MOTO;
 		int hora = 9;
 		int valorAdicional = 2000;
 
@@ -119,7 +119,7 @@ public class ServicioActualizarVehiculoTest {
 	@Test
 	public void validarDiaMoto() {
 		// Arrange
-		double valorDiaMoto = Constantes.VALOR_DIA_MOTO + Constantes.VALOR_HORA_MOTO;
+		double valorDiaMoto = Constantes.VALOR_DIA_MOTO;
 
 		Calendar fechaSalida = Calendar.getInstance();
 		Calendar fechaIngreso = Calendar.getInstance();
@@ -273,7 +273,7 @@ public class ServicioActualizarVehiculoTest {
 		Calendar fechaSalida = Calendar.getInstance();
 		Calendar fechaIngreso = Calendar.getInstance();
 
-		fechaSalida.set(2019, 8, 6, 10, 0, 0);
+		fechaSalida.set(2019, 8, 7, 2, 0, 0);
 
 		fechaIngreso.set(2019, 8, 6, 0, 0, 0);
 

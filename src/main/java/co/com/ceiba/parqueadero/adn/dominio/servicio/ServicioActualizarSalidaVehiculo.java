@@ -53,7 +53,7 @@ public class ServicioActualizarSalidaVehiculo {
 		int totalDia = (int) totalHora / Constantes.FIN_EN_HORAS_PARA_COBRO_POR_DIA;
 		int totalHoraNuevoDia = (int) totalHora % Constantes.FIN_EN_HORAS_PARA_COBRO_POR_DIA;
 
-		if (totalHora < Constantes.VALOR_HORA_MOTO) {
+		if (totalHora < Constantes.INICIO_EN_HORAS_PARA_COBRO_POR_DIA) {
 			if ((totalMinutos >= 0) && (totalHora == 0)) {
 				valor = Constantes.VALOR_HORA_MOTO;
 			} else {
@@ -65,6 +65,7 @@ public class ServicioActualizarSalidaVehiculo {
 		} else {
 			valor = ((Constantes.VALOR_DIA_MOTO * totalDia) + (totalHoraNuevoDia * Constantes.VALOR_HORA_MOTO));
 		}
+
 
 		if (Integer.valueOf(vehiculo.getCilindraje()) >= Constantes.ALTO_CILINDRAJE_MOTO) {
 			valor = valor + Constantes.VALOR_ADICIONAL_MOTO_POR_CILINDRAJE;
